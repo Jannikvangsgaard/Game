@@ -16,6 +16,9 @@ public class Town {
         totalGold = 10;
         building = new Building();
     }
+    public int getGold(){
+        return totalGold;
+    }
 
     public Boolean convertSoldiers(int[] sol) {
         int tot = 0;
