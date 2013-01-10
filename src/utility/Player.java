@@ -15,4 +15,10 @@ public class Player {
         town = new Town();
     } 
     
+   public int getGold(){
+       return town.getGold();
+   }
+   public String getName(){
+       return name;
+   }
 }
