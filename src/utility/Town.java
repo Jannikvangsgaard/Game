@@ -9,10 +9,12 @@ public class Town {
     private int civilian;
     private int[] soldiers = new int[4];
     private int totalGold;
+    private Building building;
 
     public Town() {
         civilian = 10;
         totalGold = 10;
+        building = new Building();
     }
 
     public Boolean convertSoldiers(int[] sol) {
@@ -35,11 +37,36 @@ public class Town {
         if (civilian - tot > 1) {
             civilian = civilian - tot;
             for (int i = 0; i < 4; i++) {
-                soldiers[i] += civ[i];
+                if (civ[i]==civ[0]){
+                    if (building.isBarrack()){
+                        soldiers[0] += civ[i];  
+                       return true;
+                    }
+                     if (civ[i]==civ[1]){
+                        if (building.isBarrack()){
+                            soldiers[1] += civ[i];
+                         return true;
+                    }
+                }
+                       if (civ[i]==civ[2]){
+                        if (building.isStable()){
+                            soldiers[2] += civ[i];
+                         return true;
+                    }
+                }
+                        if (civ[i]==civ[3]){
+                        if (building.isStable()){
+                            soldiers[3] += civ[i];
+                         return true;
+                    }
+                }
+//                soldiers[i] += civ[i];
             }
         }
 
-        return false;
+        
 
     }
+        return false;
+}
 }
