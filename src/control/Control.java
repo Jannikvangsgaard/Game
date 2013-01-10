@@ -12,10 +12,13 @@ public class Control {
     
     
     
-    public void createPlayer(String name){
+    public Player createPlayer(String name){
         player = new Player(name);
+        return player;
     }
-            
+    public int getGold(){
+       return player.getGold();
+    } 
     
     
 }
