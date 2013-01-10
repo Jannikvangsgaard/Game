@@ -37,36 +37,51 @@ public class Town {
         if (civilian - tot > 1) {
             civilian = civilian - tot;
             for (int i = 0; i < 4; i++) {
-                if (civ[i]==civ[0]){
-                    if (building.isBarrack()){
-                        soldiers[0] += civ[i];  
-                       return true;
-                    }
-                     if (civ[i]==civ[1]){
-                        if (building.isBarrack()){
-                            soldiers[1] += civ[i];
-                         return true;
+                if (civ[i] == civ[0]) {
+                        soldiers[0] += civ[i];
+                }
+                if (civ[i] == civ[1]) {
+                    if (building.isBarrack()) {
+                        soldiers[1] += civ[i];
                     }
                 }
-                       if (civ[i]==civ[2]){
-                        if (building.isStable()){
-                            soldiers[2] += civ[i];
-                         return true;
+                if (civ[i] == civ[2]) {
+                    if (building.isStable()) {
+                        soldiers[2] += civ[i];
                     }
                 }
-                        if (civ[i]==civ[3]){
-                        if (building.isStable()){
-                            soldiers[3] += civ[i];
-                         return true;
+                if (civ[i] == civ[3]) {
+                    if (building.isStable()) {
+                        soldiers[3] += civ[i];
+                        return true;
                     }
                 }
-//                soldiers[i] += civ[i];
             }
         }
-
-        
-
-    }
         return false;
-}
+    }
+    
+    public void build(int building){
+        switch (building){
+            case 1:
+                this.building.setBarrack(true);
+                break;
+            case 2:
+                this.building.setStable(true);
+                break;
+            case 3:
+                this.building.setWall(true);
+                break;
+            case 4:
+                this.building.setGreatWall(true);
+                break;
+            case 5:
+                this.building.setSpecialWeaponSmith(true);
+                break;
+            case 6:
+                this.building.setSiegeEngineHouse(true);
+                break;
+        }
+    }
+    
 }
