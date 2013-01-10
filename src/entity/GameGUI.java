@@ -5,7 +5,9 @@
 package entity;
 
 import control.Control;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import utility.Player;
 
 /**
  *
@@ -13,15 +15,16 @@ import javax.swing.JOptionPane;
  */
 public class GameGUI extends javax.swing.JFrame {
     private Control control = new Control();
-    private static String player1, player2;
-    
+    private static String player1name, player2name;
+    private int turn = 0;
+    private Player player1, player2, currentPlayer;
     /**
      * Creates new form GameGUI
      */
     public GameGUI() {
         initComponents();
     }
-
+        
    
     
     
@@ -35,21 +38,100 @@ public class GameGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelCurrentPlayer = new javax.swing.JLabel();
+        jLabelGold = new javax.swing.JLabel();
+        jLabelLightInf = new javax.swing.JLabel();
+        jLabelHinf = new javax.swing.JLabel();
+        jLabelLCav = new javax.swing.JLabel();
+        jLabelHCav = new javax.swing.JLabel();
+        jButtonStart = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabelCurrentPlayer.setText("PlayerName");
+
+        jLabelGold.setText("Gold");
+
+        jLabelLightInf.setText("L.Inf");
+
+        jLabelHinf.setText("H.Inf");
+
+        jLabelLCav.setText("L.Cav");
+
+        jLabelHCav.setText("H.Cav");
+
+        jButtonStart.setText("Start");
+        jButtonStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelHCav)
+                    .addComponent(jLabelLCav)
+                    .addComponent(jLabelHinf)
+                    .addComponent(jLabelLightInf)
+                    .addComponent(jLabelGold))
+                .addContainerGap(755, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonStart)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelGold))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelLightInf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelHinf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelLCav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelHCav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                .addComponent(jButtonStart)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+  
+    private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
+            if (turn==0){
+           player1 =  control.createPlayer(player1name);
+           player2 = (Player) control.createPlayer(player2name);
+           jButtonStart.setText("Next");
+           turn++;
+            }
+            if (turn==1){
+                jLabelCurrentPlayer.setText("" + player1.getName());
+                jLabelGold.setText("" +player1.getGold());
+                currentPlayer = player1;
+                turn++;
+            }
+            else if (turn==2){
+                jLabelCurrentPlayer.setText("" + player2.getName());
+                jLabelGold.setText("" +player2.getGold());
+                currentPlayer = player2;
+                turn=0;
+            }
+            
+            
+    }//GEN-LAST:event_jButtonStartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,12 +164,19 @@ public class GameGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GameGUI().setVisible(true);
-                player1 = JOptionPane.showInputDialog(null, "Player 1 write your name");
-                player2 = JOptionPane.showInputDialog(null, "Player 2 write your name");
+                player1name = JOptionPane.showInputDialog(null, "Player 1 write your name");
+                player2name = JOptionPane.showInputDialog(null, "Player 2 write your name");
              
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonStart;
+    private javax.swing.JLabel jLabelCurrentPlayer;
+    private javax.swing.JLabel jLabelGold;
+    private javax.swing.JLabel jLabelHCav;
+    private javax.swing.JLabel jLabelHinf;
+    private javax.swing.JLabel jLabelLCav;
+    private javax.swing.JLabel jLabelLightInf;
     // End of variables declaration//GEN-END:variables
 }

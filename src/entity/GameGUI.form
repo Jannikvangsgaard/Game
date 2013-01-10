@@ -22,13 +22,87 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="907" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jLabelCurrentPlayer" min="-2" pref="98" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelGold" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="755" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButtonStart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="522" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelCurrentPlayer" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="jLabelGold" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="313" max="32767" attributes="0"/>
+              <Component id="jButtonStart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabelCurrentPlayer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PlayerName"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelGold">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gold"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelLightInf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L.Inf"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHinf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H.Inf"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelLCav">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L.Cav"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHCav">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H.Cav"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonStart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStartActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>
