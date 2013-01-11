@@ -16,6 +16,11 @@ public class Town {
         totalGold = 10;
         building = new Building();
     }
+    public void counter(){
+        int num = civilian/2;
+        civilian+=num;
+        totalGold+=num;
+    }
     public int getGold(){
         return totalGold;
     }
