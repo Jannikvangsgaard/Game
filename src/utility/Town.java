@@ -24,6 +24,9 @@ public class Town {
         civilian+=num;
         
     }
+    public int getCivilian(){
+        return civilian;
+    }
     public int getGold(){
         return totalGold;
     }

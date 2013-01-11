@@ -7,6 +7,8 @@ package entity;
 import control.Control;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerListModel;
 import utility.Player;
 
 /**
@@ -16,8 +18,12 @@ import utility.Player;
 public class GameGUI extends javax.swing.JFrame {
     private Control control = new Control();
     private static String player1name, player2name;
+  //  private String[] labels = {"Soldiers: " , "Amount: "},soldiersNames = {"Light Infantry", "Heavy Infantry", "Light Cavalry", "Heavy Cavalry"};
+ //   private SpinnerListModel soldierModel = null;
     private int turn = 0;
     private Player player1, player2, currentPlayer;
+    
+  
     /**
      * Creates new form GameGUI
      */
@@ -50,6 +56,19 @@ public class GameGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jTextFieldBuyLInf = new javax.swing.JTextField();
+        jTextFieldBuyHInf = new javax.swing.JTextField();
+        jTextFieldBuyLCav = new javax.swing.JTextField();
+        jTextFieldBuyHCav = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButtonTrain = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFieldConvert = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabelCivilians = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,38 +101,107 @@ public class GameGUI extends javax.swing.JFrame {
 
         jLabel5.setText("Gold");
 
+        jTextFieldBuyLInf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBuyLInfActionPerformed(evt);
+            }
+        });
+
+        jTextFieldBuyHInf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBuyHInfActionPerformed(evt);
+            }
+        });
+
+        jTextFieldBuyLCav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBuyLCavActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Train Light Infantry");
+
+        jLabel7.setText("Train Heavy Infantry");
+
+        jLabel8.setText("Train Light Cavalry");
+
+        jLabel9.setText("Train Heavy Cavalry");
+
+        jButtonTrain.setText("Train");
+        jButtonTrain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrainActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Convert Soldier");
+
+        jTextFieldConvert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldConvertActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Civilians");
+
+        jLabelCivilians.setText("Civilians");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelHCav)
-                    .addComponent(jLabelLCav)
-                    .addComponent(jLabelHinf)
-                    .addComponent(jLabelLightInf)
-                    .addComponent(jLabelGold))
-                .addContainerGap(755, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonStart)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonStart))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jButtonTrain))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelHCav)
+                                    .addComponent(jLabelLCav)
+                                    .addComponent(jLabelHinf)
+                                    .addComponent(jLabelLightInf)
+                                    .addComponent(jLabelGold))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 745, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldBuyHCav, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldBuyLCav, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldBuyHInf, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldBuyLInf, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCivilians, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldConvert, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap()
                 .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabelCivilians))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGold)
                     .addComponent(jLabel5))
@@ -133,14 +221,42 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHCav)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
-                .addComponent(jButtonStart)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBuyLInf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBuyHInf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBuyLCav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBuyHCav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 208, Short.MAX_VALUE)
+                        .addComponent(jButtonStart))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldConvert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGap(19, 19, 19)
+                        .addComponent(jButtonTrain)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-  
+    
+ 
+    
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
             if (turn==0){
            player1 =  control.createPlayer(player1name);
@@ -156,7 +272,7 @@ public class GameGUI extends javax.swing.JFrame {
                 jLabelHinf.setText("" +currentPlayer.getHInf());
                 jLabelLCav.setText("" +currentPlayer.getLCav());
                 jLabelHCav.setText("" +currentPlayer.getHCav());
-                
+                jLabelCivilians.setText("" + currentPlayer.getCivilian());
                 turn++;
             }
             else if (turn==2){
@@ -167,11 +283,41 @@ public class GameGUI extends javax.swing.JFrame {
                 jLabelHinf.setText("" +currentPlayer.getHInf());
                 jLabelLCav.setText("" +currentPlayer.getLCav());
                 jLabelHCav.setText("" +currentPlayer.getHCav());
+                jLabelCivilians.setText("" + currentPlayer.getCivilian());
                 turn=1;
             }
             
             
     }//GEN-LAST:event_jButtonStartActionPerformed
+
+    private void jTextFieldBuyLInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBuyLInfActionPerformed
+
+    private void jTextFieldBuyLCavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyLCavActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBuyLCavActionPerformed
+
+    private void jTextFieldConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConvertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldConvertActionPerformed
+
+    private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
+       int soldier1=0, soldier2=0, soldier3=0, soldier4=0;
+       if (jTextFieldBuyLInf.getText()!=null)
+       soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
+       if (jTextFieldBuyHInf.getText()!=null)
+       soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
+       if (jTextFieldBuyLCav.getText()!=null)
+       soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
+       if (jTextFieldBuyHCav.getText()!=null)
+       soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
+       control.train(soldier1, soldier2, soldier3, soldier4);
+    }//GEN-LAST:event_jButtonTrainActionPerformed
+
+    private void jTextFieldBuyHInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBuyHInfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,22 +352,35 @@ public class GameGUI extends javax.swing.JFrame {
                 new GameGUI().setVisible(true);
                 player1name = JOptionPane.showInputDialog(null, "Player 1 write your name");
                 player2name = JOptionPane.showInputDialog(null, "Player 2 write your name");
-             
+                
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonStart;
+    private javax.swing.JButton jButtonTrain;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCivilians;
     private javax.swing.JLabel jLabelCurrentPlayer;
     private javax.swing.JLabel jLabelGold;
     private javax.swing.JLabel jLabelHCav;
     private javax.swing.JLabel jLabelHinf;
     private javax.swing.JLabel jLabelLCav;
     private javax.swing.JLabel jLabelLightInf;
+    private javax.swing.JTextField jTextFieldBuyHCav;
+    private javax.swing.JTextField jTextFieldBuyHInf;
+    private javax.swing.JTextField jTextFieldBuyLCav;
+    private javax.swing.JTextField jTextFieldBuyLInf;
+    private javax.swing.JTextField jTextFieldConvert;
     // End of variables declaration//GEN-END:variables
 }

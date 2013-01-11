@@ -19,6 +19,8 @@ public class Control {
     public int getGold(){
        return player.getGold();
     } 
-    
+    public void train(int sol, int sol2, int sol3, int sol4){
+        player.train(sol,sol2,sol3,sol4);
+    }
     
 }
