@@ -32,9 +32,6 @@ public class Army {
         return onlyCav;
     }
 
-    public void setOnlyCav(boolean onlyCav) {
-        this.onlyCav = onlyCav;
-    }
 
     public int[] getArmy() {
         return army;
