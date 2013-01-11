@@ -45,6 +45,11 @@ public class GameGUI extends javax.swing.JFrame {
         jLabelLCav = new javax.swing.JLabel();
         jLabelHCav = new javax.swing.JLabel();
         jButtonStart = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,13 +72,29 @@ public class GameGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("L.Inf");
+
+        jLabel2.setText("H.Inf");
+
+        jLabel3.setText("L.Cav");
+
+        jLabel4.setText("H.Cav");
+
+        jLabel5.setText("Gold");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHCav)
@@ -90,19 +111,29 @@ public class GameGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(52, 52, 52)
+                .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelGold))
+                    .addComponent(jLabelGold)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelLightInf)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLightInf)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHinf)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHinf)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelLCav)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLCav)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHCav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHCav)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(jButtonStart)
                 .addContainerGap())
         );
@@ -118,16 +149,25 @@ public class GameGUI extends javax.swing.JFrame {
            turn++;
             }
             if (turn==1){
+                currentPlayer = player1;
                 jLabelCurrentPlayer.setText("" + player1.getName());
                 jLabelGold.setText("" +player1.getGold());
-                currentPlayer = player1;
+                jLabelLightInf.setText("" +currentPlayer.getLInf());
+                jLabelHinf.setText("" +currentPlayer.getHInf());
+                jLabelLCav.setText("" +currentPlayer.getLCav());
+                jLabelHCav.setText("" +currentPlayer.getHCav());
+                
                 turn++;
             }
             else if (turn==2){
+                currentPlayer = player2;
                 jLabelCurrentPlayer.setText("" + player2.getName());
                 jLabelGold.setText("" +player2.getGold());
-                currentPlayer = player2;
-                turn=0;
+                jLabelLightInf.setText("" +currentPlayer.getLInf());
+                jLabelHinf.setText("" +currentPlayer.getHInf());
+                jLabelLCav.setText("" +currentPlayer.getLCav());
+                jLabelHCav.setText("" +currentPlayer.getHCav());
+                turn=1;
             }
             
             
@@ -172,6 +212,11 @@ public class GameGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonStart;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCurrentPlayer;
     private javax.swing.JLabel jLabelGold;
     private javax.swing.JLabel jLabelHCav;

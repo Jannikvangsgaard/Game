@@ -10,6 +10,7 @@ public class Building {
     private boolean stable;
     private boolean wall;
     private boolean greatWall;
+    private boolean market;
     private boolean specialWeaponSmith;
     private boolean siegeEngineHouse;
     
@@ -47,8 +48,14 @@ public class Building {
     public void setSiegeEngineHouse(boolean siegeEngineHouse) {
         this.siegeEngineHouse = siegeEngineHouse;
     }
+    public void setMarkte(boolean market){
+        this.market = market;
+    }
+    public boolean isMarket(){
+        return market;
+    }
     
-
+    
     public boolean isBarrack() {
         return barrack;
     }
