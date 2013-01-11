@@ -18,6 +18,8 @@ public class Town {
     }
     public void counter(){
         int num = civilian/2;
+        if (num>50)
+            num =50;
         totalGold+=civilian;
         civilian+=num;
         
