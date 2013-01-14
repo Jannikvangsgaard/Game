@@ -11,7 +11,7 @@ public class Player {
     private Town town;
     private int[] sol =  new int[4];
     private int[] civ = new int[4];
-   
+    private int rest;
    public Player(String name) {
         this.name = name;
         town = new Town();
@@ -52,11 +52,38 @@ public class Player {
        sol[3] = sol4;
        town.trainSoldiers(sol);
    }
-   public void convert(int civ1, int civ2, int civ3, int civ4){
-       civ[0] = civ1;
-       civ[1] = civ2;
-       civ[2] = civ3;
-       civ[3] = civ4;
-       town.convertSoldiers(civ);
-   }
+ public void convert(int civ1, int civ2, int civ3, int civ4, int amount){
+    if (amount < civ1){
+        civ1 = amount;
+        civ2 = 0;
+        civ3 = 0;
+        civ4 = 0;
+    } else if (amount > civ1){
+        rest = amount - civ1;
+        if (rest > civ2){
+            amount = rest;
+            rest = amount - civ2;
+            if (rest > civ3){
+                amount = rest;
+                rest = amount - civ3;
+                if (rest > civ4){
+                amount = rest;
+                rest = amount - civ4;
+            } else if (civ4 > rest){
+                civ4 = rest;
+            }
+            }
+            else if (civ3 > rest){
+                civ3 = rest;
+                civ4 = 0;
+            } 
+        } 
+        else if (civ2 > rest){
+            civ2 = rest;
+            civ3 = 0;
+            civ4 = 0;
+        }
+    }
+    
+}
 }
