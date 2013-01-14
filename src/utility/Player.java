@@ -16,7 +16,11 @@ public class Player {
         this.name = name;
         town = new Town();
     } 
-      
+   
+   public void counter(){
+       town.counter();
+   }
+   
    public int getGold(){
        return town.getGold();
    }

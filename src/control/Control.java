@@ -10,7 +10,10 @@ public class Control {
     private Player player;
     private int rest;
   
-    
+
+    public void counter(){
+        player.counter();
+    }
     public Player createPlayer(String name){
         player = new Player(name);
         return player;

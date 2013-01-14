@@ -65,6 +65,8 @@ public class GameGUI extends javax.swing.JFrame {
         jTextFieldConvert = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabelCivilians = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaStatus = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,17 +170,18 @@ public class GameGUI extends javax.swing.JFrame {
 
         jLabelCivilians.setText("Civilians");
 
+        jTextAreaStatus.setColumns(20);
+        jTextAreaStatus.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaStatus);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonStart))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCurrentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
@@ -191,8 +194,7 @@ public class GameGUI extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jButtonTrain))
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -211,7 +213,13 @@ public class GameGUI extends javax.swing.JFrame {
                                     .addComponent(jTextFieldBuyLInf, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelCivilians, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldConvert, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonTrain)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonStart)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -268,9 +276,14 @@ public class GameGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldConvert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
-                        .addGap(19, 19, 19)
-                        .addComponent(jButtonTrain)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jButtonTrain)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1)))))
                 .addContainerGap())
         );
 
@@ -282,7 +295,7 @@ public class GameGUI extends javax.swing.JFrame {
             player1 = control.createPlayer(player1name);
             player2 = (Player) control.createPlayer(player2name);
             jButtonStart.setText("Next");
-            turn++;
+            turn++;            
         }
         if (turn == 1) {
             currentPlayer = player1;
@@ -304,8 +317,10 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelHCav.setText("" + currentPlayer.getHCav());
             jLabelCivilians.setText("" + currentPlayer.getCivilian());
             turn = 1;
+            player1.counter();
+            player2.counter();
         }
-
+       jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
 
     }//GEN-LAST:event_jButtonStartActionPerformed
 
@@ -336,9 +351,10 @@ public class GameGUI extends javax.swing.JFrame {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
         }
         control.train(soldier1, soldier2, soldier3, soldier4);
-       
+       if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())){
         amount = Integer.parseInt(jTextFieldConvert.getText()); soldier1 = Integer.parseInt(jLabelLightInf.getText()); soldier2 = Integer.parseInt(jLabelHinf.getText()); soldier3 = Integer.parseInt(jLabelLCav.getText()); soldier4 = Integer.parseInt(jLabelHCav.getText());
         control.convert(soldier1, soldier2, soldier3, soldier4,amount);
+       }
     }//GEN-LAST:event_jButtonTrainActionPerformed
 
     private void jTextFieldBuyHInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfActionPerformed
@@ -523,6 +539,8 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHinf;
     private javax.swing.JLabel jLabelLCav;
     private javax.swing.JLabel jLabelLightInf;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaStatus;
     private javax.swing.JTextField jTextFieldBuyHCav;
     private javax.swing.JTextField jTextFieldBuyHInf;
     private javax.swing.JTextField jTextFieldBuyLCav;
