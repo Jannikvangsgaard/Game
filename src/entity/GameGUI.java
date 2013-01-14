@@ -16,25 +16,21 @@ import utility.Player;
  * @author computer
  */
 public class GameGUI extends javax.swing.JFrame {
+
     private Control control = new Control();
     private static String player1name, player2name;
-  //  private String[] labels = {"Soldiers: " , "Amount: "},soldiersNames = {"Light Infantry", "Heavy Infantry", "Light Cavalry", "Heavy Cavalry"};
- //   private SpinnerListModel soldierModel = null;
+    //  private String[] labels = {"Soldiers: " , "Amount: "},soldiersNames = {"Light Infantry", "Heavy Infantry", "Light Cavalry", "Heavy Cavalry"};
+    //   private SpinnerListModel soldierModel = null;
     private int turn = 0;
     private Player player1, player2, currentPlayer;
-    
-  
+
     /**
      * Creates new form GameGUI
      */
     public GameGUI() {
         initComponents();
     }
-        
-   
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,16 +102,37 @@ public class GameGUI extends javax.swing.JFrame {
                 jTextFieldBuyLInfActionPerformed(evt);
             }
         });
+        jTextFieldBuyLInf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuyLInfKeyReleased(evt);
+            }
+        });
 
         jTextFieldBuyHInf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBuyHInfActionPerformed(evt);
             }
         });
+        jTextFieldBuyHInf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuyHInfKeyReleased(evt);
+            }
+        });
 
         jTextFieldBuyLCav.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBuyLCavActionPerformed(evt);
+            }
+        });
+        jTextFieldBuyLCav.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuyLCavKeyReleased(evt);
+            }
+        });
+
+        jTextFieldBuyHCav.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuyHCavKeyReleased(evt);
             }
         });
 
@@ -139,6 +156,11 @@ public class GameGUI extends javax.swing.JFrame {
         jTextFieldConvert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldConvertActionPerformed(evt);
+            }
+        });
+        jTextFieldConvert.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldConvertKeyReleased(evt);
             }
         });
 
@@ -254,40 +276,37 @@ public class GameGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
- 
-    
+
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
-            if (turn==0){
-           player1 =  control.createPlayer(player1name);
-           player2 = (Player) control.createPlayer(player2name);
-           jButtonStart.setText("Next");
-           turn++;
-            }
-            if (turn==1){
-                currentPlayer = player1;
-                jLabelCurrentPlayer.setText("" + player1.getName());
-                jLabelGold.setText("" +player1.getGold());
-                jLabelLightInf.setText("" +currentPlayer.getLInf());
-                jLabelHinf.setText("" +currentPlayer.getHInf());
-                jLabelLCav.setText("" +currentPlayer.getLCav());
-                jLabelHCav.setText("" +currentPlayer.getHCav());
-                jLabelCivilians.setText("" + currentPlayer.getCivilian());
-                turn++;
-            }
-            else if (turn==2){
-                currentPlayer = player2;
-                jLabelCurrentPlayer.setText("" + player2.getName());
-                jLabelGold.setText("" +player2.getGold());
-                jLabelLightInf.setText("" +currentPlayer.getLInf());
-                jLabelHinf.setText("" +currentPlayer.getHInf());
-                jLabelLCav.setText("" +currentPlayer.getLCav());
-                jLabelHCav.setText("" +currentPlayer.getHCav());
-                jLabelCivilians.setText("" + currentPlayer.getCivilian());
-                turn=1;
-            }
-            
-            
+        if (turn == 0) {
+            player1 = control.createPlayer(player1name);
+            player2 = (Player) control.createPlayer(player2name);
+            jButtonStart.setText("Next");
+            turn++;
+        }
+        if (turn == 1) {
+            currentPlayer = player1;
+            jLabelCurrentPlayer.setText("" + player1.getName());
+            jLabelGold.setText("" + player1.getGold());
+            jLabelLightInf.setText("" + currentPlayer.getLInf());
+            jLabelHinf.setText("" + currentPlayer.getHInf());
+            jLabelLCav.setText("" + currentPlayer.getLCav());
+            jLabelHCav.setText("" + currentPlayer.getHCav());
+            jLabelCivilians.setText("" + currentPlayer.getCivilian());
+            turn++;
+        } else if (turn == 2) {
+            currentPlayer = player2;
+            jLabelCurrentPlayer.setText("" + player2.getName());
+            jLabelGold.setText("" + player2.getGold());
+            jLabelLightInf.setText("" + currentPlayer.getLInf());
+            jLabelHinf.setText("" + currentPlayer.getHInf());
+            jLabelLCav.setText("" + currentPlayer.getLCav());
+            jLabelHCav.setText("" + currentPlayer.getHCav());
+            jLabelCivilians.setText("" + currentPlayer.getCivilian());
+            turn = 1;
+        }
+
+
     }//GEN-LAST:event_jButtonStartActionPerformed
 
     private void jTextFieldBuyLInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfActionPerformed
@@ -303,21 +322,145 @@ public class GameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConvertActionPerformed
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
-       int soldier1=0, soldier2=0, soldier3=0, soldier4=0;
-       if (jTextFieldBuyLInf.getText()!=null && !"".equals(jTextFieldBuyLInf.getText()))
-       soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
-       if (jTextFieldBuyHInf.getText()!=null && !"".equals(jTextFieldBuyHInf.getText()))
-       soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
-       if (jTextFieldBuyLCav.getText()!=null && !"".equals(jTextFieldBuyLCav.getText()))
-       soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
-       if (jTextFieldBuyHCav.getText()!=null && !"".equals(jTextFieldBuyHCav.getText()))
-       soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
-       control.train(soldier1, soldier2, soldier3, soldier4);
+        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0;
+        if (jTextFieldBuyLInf.getText() != null && !"".equals(jTextFieldBuyLInf.getText())) {
+            soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
+        }
+        if (jTextFieldBuyHInf.getText() != null && !"".equals(jTextFieldBuyHInf.getText())) {
+            soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
+        }
+        if (jTextFieldBuyLCav.getText() != null && !"".equals(jTextFieldBuyLCav.getText())) {
+            soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
+        }
+        if (jTextFieldBuyHCav.getText() != null && !"".equals(jTextFieldBuyHCav.getText())) {
+            soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
+        }
+        control.train(soldier1, soldier2, soldier3, soldier4);
     }//GEN-LAST:event_jButtonTrainActionPerformed
 
     private void jTextFieldBuyHInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBuyHInfActionPerformed
+
+    private void jTextFieldBuyLInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfKeyReleased
+        try {
+            Integer.parseInt(jTextFieldBuyLInf.getText());
+        } catch (NumberFormatException ex) {
+            if (jTextFieldBuyLInf.getText().length() == 0) {
+                jTextFieldBuyLInf.setText(null);
+            } else {
+                boolean tryOut = false;
+                while (!tryOut) {
+                    try {
+                        if (jTextFieldBuyLInf.getText().length() == 0) {
+                            tryOut = true;
+                        } else {
+                            Integer.parseInt(jTextFieldBuyLInf.getText());
+                            tryOut = true;
+                        }
+                    } catch (NumberFormatException nu) {
+                        jTextFieldBuyLInf.setText(jTextFieldBuyLInf.getText().substring(0, jTextFieldBuyLInf.getText().length() - 1));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextFieldBuyLInfKeyReleased
+
+    private void jTextFieldBuyHInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfKeyReleased
+        try {
+            Integer.parseInt(jTextFieldBuyHInf.getText());
+        } catch (NumberFormatException ex) {
+            if (jTextFieldBuyHInf.getText().length() == 0) {
+                jTextFieldBuyHInf.setText(null);
+            } else {
+                boolean tryOut = false;
+                while (!tryOut) {
+                    try {
+                        if (jTextFieldBuyHInf.getText().length() == 0) {
+                            tryOut = true;
+                        } else {
+                            Integer.parseInt(jTextFieldBuyHInf.getText());
+                            tryOut = true;
+                        }
+                    } catch (NumberFormatException nu) {
+                        jTextFieldBuyHInf.setText(jTextFieldBuyHInf.getText().substring(0, jTextFieldBuyHInf.getText().length() - 1));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextFieldBuyHInfKeyReleased
+
+    private void jTextFieldBuyLCavKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyLCavKeyReleased
+        try {
+            Integer.parseInt(jTextFieldBuyLCav.getText());
+        } catch (NumberFormatException ex) {
+            if (jTextFieldBuyLCav.getText().length() == 0) {
+                jTextFieldBuyLCav.setText(null);
+            } else {
+                boolean tryOut = false;
+                while (!tryOut) {
+                    try {
+                        if (jTextFieldBuyLCav.getText().length() == 0) {
+                            tryOut = true;
+                        } else {
+                            Integer.parseInt(jTextFieldBuyLCav.getText());
+                            tryOut = true;
+                        }
+                    } catch (NumberFormatException nu) {
+                        jTextFieldBuyLCav.setText(jTextFieldBuyLCav.getText().substring(0, jTextFieldBuyLCav.getText().length() - 1));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextFieldBuyLCavKeyReleased
+
+    private void jTextFieldBuyHCavKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyHCavKeyReleased
+        try {
+            Integer.parseInt(jTextFieldBuyHCav.getText());
+        } catch (NumberFormatException ex) {
+            if (jTextFieldBuyHCav.getText().length() == 0) {
+                jTextFieldBuyHCav.setText(null);
+            } else {
+                boolean tryOut = false;
+                while (!tryOut) {
+                    try {
+                        if (jTextFieldBuyHCav.getText().length() == 0) {
+                            tryOut = true;
+                        } else {
+                            Integer.parseInt(jTextFieldBuyHCav.getText());
+                            tryOut = true;
+                        }
+                    } catch (NumberFormatException nu) {
+                        jTextFieldBuyHCav.setText(jTextFieldBuyHCav.getText().substring(0, jTextFieldBuyHCav.getText().length() - 1));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextFieldBuyHCavKeyReleased
+
+    private void jTextFieldConvertKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldConvertKeyReleased
+        try {
+            Integer.parseInt(jTextFieldConvert.getText());
+        } catch (NumberFormatException ex) {
+            if (jTextFieldConvert.getText().length() == 0) {
+                jTextFieldConvert.setText(null);
+            } else {
+                boolean tryOut = false;
+                while (!tryOut) {
+                    try {
+                        if (jTextFieldConvert.getText().length() == 0) {
+                            tryOut = true;
+                        } else {
+                            Integer.parseInt(jTextFieldConvert.getText());
+                            tryOut = true;
+                        }
+                    } catch (NumberFormatException nu) {
+                        jTextFieldConvert.setText(jTextFieldConvert.getText().substring(0, jTextFieldConvert.getText().length() - 1));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jTextFieldConvertKeyReleased
 
     /**
      * @param args the command line arguments
@@ -352,7 +495,7 @@ public class GameGUI extends javax.swing.JFrame {
                 new GameGUI().setVisible(true);
                 player1name = JOptionPane.showInputDialog(null, "Player 1 write your name");
                 player2name = JOptionPane.showInputDialog(null, "Player 2 write your name");
-                
+
             }
         });
     }
