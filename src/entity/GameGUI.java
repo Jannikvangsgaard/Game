@@ -304,13 +304,13 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
        int soldier1=0, soldier2=0, soldier3=0, soldier4=0;
-       if (jTextFieldBuyLInf.getText()!=null)
+       if (jTextFieldBuyLInf.getText()!=null && !"".equals(jTextFieldBuyLInf.getText()))
        soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
-       if (jTextFieldBuyHInf.getText()!=null)
+       if (jTextFieldBuyHInf.getText()!=null && !"".equals(jTextFieldBuyHInf.getText()))
        soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
-       if (jTextFieldBuyLCav.getText()!=null)
+       if (jTextFieldBuyLCav.getText()!=null && !"".equals(jTextFieldBuyLCav.getText()))
        soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
-       if (jTextFieldBuyHCav.getText()!=null)
+       if (jTextFieldBuyHCav.getText()!=null && !"".equals(jTextFieldBuyHCav.getText()))
        soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
        control.train(soldier1, soldier2, soldier3, soldier4);
     }//GEN-LAST:event_jButtonTrainActionPerformed
