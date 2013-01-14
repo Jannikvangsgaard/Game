@@ -42,15 +42,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelGold" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="745" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelGold" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -60,6 +57,23 @@
                                   <Component id="jTextFieldBuyLInf" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabelCivilians" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldConvert" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioButtonWall" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonGreatWall" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonMarket" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jRadioButtonBarrack" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonStable" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jRadioButtonSiege" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonSpecial" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -116,25 +130,31 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldBuyLInf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonBarrack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonSpecial" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldBuyHInf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonStable" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonSiege" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldBuyLCav" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonWall" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldBuyHCav" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonGreatWall" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="66" pref="208" max="32767" attributes="0"/>
+                      <EmptySpace min="66" pref="206" max="32767" attributes="0"/>
                       <Component id="jButtonStart" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -142,6 +162,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldConvert" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonMarket" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -226,24 +247,36 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldBuyLInf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuyLInfActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuyLInfKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldBuyHInf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuyHInfActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuyHInfKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldBuyLCav">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuyLCavActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuyLCavKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldBuyHCav">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuyHCavKeyReleased"/>
       </Events>
@@ -282,6 +315,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldConvert">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldConvertActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldConvertKeyReleased"/>
@@ -312,5 +348,61 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonBarrack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Barrack"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonBarrackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonStable">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stable"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonStableActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonWall">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Wall"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonWallActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonGreatWall">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Great Wall"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGreatWallActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonMarket">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Market"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonMarketActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonSpecial">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Special Weapon Smith"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSpecialActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonSiege">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Siege Engine House"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSiegeActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

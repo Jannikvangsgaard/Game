@@ -20,6 +20,9 @@ public class Player {
    public void counter(){
        town.counter();
    }
+   public void build(int i){
+       town.build(i);
+   }
    
    public int getGold(){
        return town.getGold();
