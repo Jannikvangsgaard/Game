@@ -10,6 +10,7 @@ public class Player {
     private String name;
     private Town town;
     private int[] sol =  new int[4];
+    private int[] civ = new int[4];
    
    public Player(String name) {
         this.name = name;
@@ -43,5 +44,12 @@ public class Player {
        sol[2] = sol3;
        sol[3] = sol4;
        town.trainSoldiers(sol);
+   }
+   public void convert(int civ1, int civ2, int civ3, int civ4){
+       civ[0] = civ1;
+       civ[1] = civ2;
+       civ[2] = civ3;
+       civ[3] = civ4;
+       town.convertSoldiers(civ);
    }
 }
