@@ -374,7 +374,7 @@ public class GameGUI extends javax.swing.JFrame {
             player1 = control.createPlayer(player1name);
             player2 = (Player) control.createPlayer(player2name);
             jButtonStart.setText("Next");
-            turn++;            
+            turn++;
         }
         if (turn == 1) {
             currentPlayer = player1;
@@ -399,7 +399,7 @@ public class GameGUI extends javax.swing.JFrame {
             player1.counter();
             player2.counter();
         }
-       jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
+        jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
 
     }//GEN-LAST:event_jButtonStartActionPerformed
 
@@ -416,7 +416,7 @@ public class GameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConvertActionPerformed
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
-        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount=0;
+        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0;
         if (jTextFieldBuyLInf.getText() != null && !"".equals(jTextFieldBuyLInf.getText())) {
             soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
         }
