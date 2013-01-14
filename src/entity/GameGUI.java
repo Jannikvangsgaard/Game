@@ -295,7 +295,7 @@ public class GameGUI extends javax.swing.JFrame {
             player1 = control.createPlayer(player1name);
             player2 = (Player) control.createPlayer(player2name);
             jButtonStart.setText("Next");
-            turn++;            
+            turn++;
         }
         if (turn == 1) {
             currentPlayer = player1;
@@ -320,7 +320,7 @@ public class GameGUI extends javax.swing.JFrame {
             player1.counter();
             player2.counter();
         }
-       jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
+        jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
 
     }//GEN-LAST:event_jButtonStartActionPerformed
 
@@ -337,7 +337,7 @@ public class GameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConvertActionPerformed
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
-        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount=0;
+        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0;
         if (jTextFieldBuyLInf.getText() != null && !"".equals(jTextFieldBuyLInf.getText())) {
             soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
         }
@@ -351,10 +351,10 @@ public class GameGUI extends javax.swing.JFrame {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
         }
         control.train(soldier1, soldier2, soldier3, soldier4);
-       if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())){
-        amount = Integer.parseInt(jTextFieldConvert.getText()); soldier1 = Integer.parseInt(jLabelLightInf.getText()); soldier2 = Integer.parseInt(jLabelHinf.getText()); soldier3 = Integer.parseInt(jLabelLCav.getText()); soldier4 = Integer.parseInt(jLabelHCav.getText());
-        control.convert(soldier1, soldier2, soldier3, soldier4,amount);
-       }
+        if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())) {
+            amount = Integer.parseInt(jTextFieldConvert.getText());
+            control.convert(soldier1, soldier2, soldier3, soldier4, amount);
+        }
     }//GEN-LAST:event_jButtonTrainActionPerformed
 
     private void jTextFieldBuyHInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfActionPerformed
