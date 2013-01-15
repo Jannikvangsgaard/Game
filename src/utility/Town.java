@@ -10,69 +10,108 @@ public class Town {
     private int[] soldiers = new int[4];
     private int totalGold;
     private Building building;
-    
+
     public Town() {
         civilian = 10;
         totalGold = 10;
         building = new Building();
     }
-    public void counter(){
-        int num = civilian/2;
-        if (num>50)
-            num =50;
-        totalGold+=civilian;
-        civilian+=num;
-        
+
+    public void counter() {
+        int num = civilian / 2;
+        if (num > 50) {
+            num = 50;
+        }
+        totalGold += civilian;
+        civilian += num;
+
     }
-    public boolean isBarrack(){
+
+    public boolean isBarrack() {
         return building.isBarrack();
     }
-    public boolean isStable(){
+
+    public boolean isStable() {
         return building.isStable();
     }
-    public boolean isWall(){
+
+    public boolean isWall() {
         return building.isWall();
     }
-    public boolean isGreatWall(){
+
+    public boolean isGreatWall() {
         return building.isGreatWall();
     }
-    public boolean isMarket(){
+
+    public boolean isMarket() {
         return building.isMarket();
     }
-    public boolean isSpecialWeaponSmith(){
+
+    public boolean isSpecialWeaponSmith() {
         return building.isSpecialWeaponSmith();
     }
-    public boolean isSeigeEngineHouse(){
+
+    public boolean isSeigeEngineHouse() {
         return building.isSiegeEngineHouse();
     }
-    
-    public int getCivilian(){
+
+    public int getCivilian() {
         return civilian;
     }
-    public int getGold(){
+
+    public int getGold() {
         return totalGold;
     }
-    public int getLInf(){
+
+    public int getLInf() {
         return soldiers[0];
     }
-    public int getHInf(){
+
+    public int getHInf() {
         return soldiers[1];
     }
-    public int getLCav(){
+
+    public int getLCav() {
         return soldiers[2];
     }
-    public int getHCav(){
+
+    public int getHCav() {
         return soldiers[3];
     }
 
-    public Boolean convertSoldiers(int[] sol) {
+    public Boolean convertSoldiers(int amount) {
+        int rest;
         int tot = 0;
         for (int i = 0; i < 4; i++) {
-            tot = tot + sol[i];
+            tot += soldiers[i];
         }
-        if (soldiers[0] - sol[0] > 0 && soldiers[1] - sol[1] > 0 && soldiers[2] - sol[2] > 0 && soldiers[3] - sol[3] > 0) {
-            civilian = civilian + tot;
-            return true;
+        if (amount <= tot) {
+            if (amount < soldiers[0]) {
+                soldiers[0] -= amount;
+                return true;
+            } else if (amount > soldiers[0]) {
+                rest = amount - soldiers[0];
+                soldiers[0] = 0;
+                if (rest > soldiers[2]) {
+                    rest = rest - soldiers[1];
+                    if (rest > soldiers[2]) {
+                        rest = rest - soldiers[2];
+                        if (rest > soldiers[3]) {
+
+                            return false;
+                        } else if (soldiers[3] > rest) {
+                            soldiers[3] -= rest;
+                            return true;
+                        }
+                    } else if (soldiers[2] > rest) {
+                        soldiers[2] -= rest;
+                        return true;
+                    }
+                } else if (soldiers[1] > rest) {
+                    soldiers[1] -= rest;
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -86,7 +125,7 @@ public class Town {
             civilian = civilian - tot;
             for (int i = 0; i < 4; i++) {
                 if (civ[i] == civ[0]) {
-                        soldiers[0] += civ[i];
+                    soldiers[0] += civ[i];
                 }
                 if (civ[i] == civ[1]) {
                     if (building.isBarrack()) {
@@ -108,53 +147,51 @@ public class Town {
         }
         return false;
     }
-    
-    public void build(int building){
-        switch (building){
+
+    public void build(int building) {
+        switch (building) {
             case 1:
-                if (totalGold>=10){
-                this.building.setBarrack(true);
-                totalGold-=10;
+                if (totalGold >= 10) {
+                    this.building.setBarrack(true);
+                    totalGold -= 10;
                 }
                 break;
             case 2:
-                if (totalGold>=50){
-                this.building.setStable(true);
-                totalGold-=50;
+                if (totalGold >= 50) {
+                    this.building.setStable(true);
+                    totalGold -= 50;
                 }
                 break;
             case 3:
-                if (totalGold>=80){
-                this.building.setWall(true);
-                totalGold-=80;
+                if (totalGold >= 80) {
+                    this.building.setWall(true);
+                    totalGold -= 80;
                 }
                 break;
             case 4:
-                if (totalGold>=250){
-                this.building.setGreatWall(true);
-                totalGold-=250;
+                if (totalGold >= 250) {
+                    this.building.setGreatWall(true);
+                    totalGold -= 250;
                 }
                 break;
             case 5:
-                if (totalGold>=80){
+                if (totalGold >= 80) {
                     this.building.setMarkte(true);
-                    totalGold-=80;
-                   break;
+                    totalGold -= 80;
+                    break;
                 }
             case 6:
-                if (totalGold>=130){
-                this.building.setSpecialWeaponSmith(true);
-                totalGold-=130;
+                if (totalGold >= 130) {
+                    this.building.setSpecialWeaponSmith(true);
+                    totalGold -= 130;
                 }
                 break;
             case 7:
-                if (totalGold>=300){
-                this.building.setSiegeEngineHouse(true);
-                totalGold-=300;
+                if (totalGold >= 300) {
+                    this.building.setSiegeEngineHouse(true);
+                    totalGold -= 300;
                 }
                 break;
         }
     }
-    
 }
-
