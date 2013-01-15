@@ -84,6 +84,6 @@ public class Player {
             civ4 = 0;
         }
     }
-    
+    town.convertSoldiers(sol);
 }
 }
