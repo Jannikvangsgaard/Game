@@ -489,7 +489,7 @@ public class GameGUI extends javax.swing.JFrame {
         currentPlayer.train(soldier1, soldier2, soldier3, soldier4);
        if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())){
         amount = Integer.parseInt(jTextFieldConvert.getText()); soldier1 = Integer.parseInt(jLabelLightInf.getText()); soldier2 = Integer.parseInt(jLabelHinf.getText()); soldier3 = Integer.parseInt(jLabelLCav.getText()); soldier4 = Integer.parseInt(jLabelHCav.getText());
-        currentPlayer.convert(soldier1, soldier2, soldier3, soldier4,amount);
+        currentPlayer.convert(amount);
        }
     }//GEN-LAST:event_jButtonTrainActionPerformed
 

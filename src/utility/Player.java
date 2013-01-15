@@ -89,7 +89,7 @@ public class Player {
         town.trainSoldiers(sol);
     }
 
-    public void convert(int civ1, int civ2, int civ3, int civ4, int amount) {
+    public void convert(int amount) {
         town.convertSoldiers(amount);
     }
 }
