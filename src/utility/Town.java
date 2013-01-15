@@ -86,7 +86,7 @@ public class Town {
             tot += soldiers[i];
         }
         if (amount <= tot) {
-            if (amount < soldiers[0]) {
+            if (amount <= soldiers[0]) {
                 soldiers[0] -= amount;
                 return true;
             } else if (amount > soldiers[0]) {
@@ -103,11 +103,11 @@ public class Town {
                             soldiers[3] -= rest;
                             return true;
                         }
-                    } else if (soldiers[2] > rest) {
+                    } else if (soldiers[2] >= rest) {
                         soldiers[2] -= rest;
                         return true;
                     }
-                } else if (soldiers[1] > rest) {
+                } else if (soldiers[1] >= rest) {
                     soldiers[1] -= rest;
                     return true;
                 }
