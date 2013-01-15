@@ -42,13 +42,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelGold" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelHCav" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLCav" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHinf" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLightInf" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGold" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jTextFieldBuyHCav" alignment="0" max="32767" attributes="0"/>
@@ -75,9 +73,9 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jButtonTrain" min="-2" max="-2" attributes="0"/>

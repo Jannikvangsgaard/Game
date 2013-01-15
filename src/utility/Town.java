@@ -10,7 +10,7 @@ public class Town {
     private int[] soldiers = new int[4];
     private int totalGold;
     private Building building;
-
+    
     public Town() {
         civilian = 10;
         totalGold = 10;
@@ -24,6 +24,28 @@ public class Town {
         civilian+=num;
         
     }
+    public boolean isBarrack(){
+        return building.isBarrack();
+    }
+    public boolean isStable(){
+        return building.isStable();
+    }
+    public boolean isWall(){
+        return building.isWall();
+    }
+    public boolean isGreatWall(){
+        return building.isGreatWall();
+    }
+    public boolean isMarket(){
+        return building.isMarket();
+    }
+    public boolean isSpecialWeaponSmith(){
+        return building.isSpecialWeaponSmith();
+    }
+    public boolean isSeigeEngineHouse(){
+        return building.isSiegeEngineHouse();
+    }
+    
     public int getCivilian(){
         return civilian;
     }

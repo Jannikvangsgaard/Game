@@ -23,7 +23,29 @@ public class Player {
    public void build(int i){
        town.build(i);
    }
+   public boolean isBarrack(){
+      return town.isBarrack();
+   }
+   public boolean isStable(){
+       return town.isStable();
+   }   
+   public boolean isWall(){
+       return town.isWall();
+   }
+   public boolean isGreatWall(){
+       return town.isGreatWall();
+   }
+   public boolean isMarket(){
+       return town.isMarket();
+   }
+   public boolean isSpecialWeaponSmith(){
+       return town.isSpecialWeaponSmith();
+   }
+   public boolean isSeigeEngineHouse(){
+       return town.isSeigeEngineHouse();
+   }
    
+           
    public int getGold(){
        return town.getGold();
    }

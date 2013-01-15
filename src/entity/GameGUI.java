@@ -385,6 +385,35 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelLCav.setText("" + currentPlayer.getLCav());
             jLabelHCav.setText("" + currentPlayer.getHCav());
             jLabelCivilians.setText("" + currentPlayer.getCivilian());
+             if (currentPlayer.isBarrack())
+             jRadioButtonBarrack.setEnabled(false);
+            else 
+              jRadioButtonBarrack.setEnabled(true);
+            if (currentPlayer.isStable())
+             jRadioButtonStable.setEnabled(false);
+            else
+              jRadioButtonStable.setEnabled(true);
+            if (currentPlayer.isWall())
+             jRadioButtonWall.setEnabled(false);
+            else
+             jRadioButtonWall.setEnabled(true);
+            if (currentPlayer.isGreatWall())
+             jRadioButtonGreatWall.setEnabled(false);
+            else
+             jRadioButtonGreatWall.setEnabled(true);
+            if (currentPlayer.isMarket())
+             jRadioButtonMarket.setEnabled(false);
+            else
+             jRadioButtonMarket.setEnabled(true);
+            if (currentPlayer.isSpecialWeaponSmith())
+             jRadioButtonSpecial.setEnabled(false);
+            else
+             jRadioButtonSpecial.setEnabled(true);
+            if (currentPlayer.isSpecialWeaponSmith())
+             jRadioButtonSiege.setEnabled(false);
+            else
+             jRadioButtonSiege.setEnabled(true);
+            
             turn++;
         } else if (turn == 2) {
             currentPlayer = player2;
@@ -396,6 +425,34 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelHCav.setText("" + currentPlayer.getHCav());
             jLabelCivilians.setText("" + currentPlayer.getCivilian());
             turn = 1;
+            if (currentPlayer.isBarrack())
+             jRadioButtonBarrack.setEnabled(false);
+            else 
+              jRadioButtonBarrack.setEnabled(true);
+            if (currentPlayer.isStable())
+             jRadioButtonStable.setEnabled(false);
+            else
+              jRadioButtonStable.setEnabled(true);
+            if (currentPlayer.isWall())
+             jRadioButtonWall.setEnabled(false);
+            else
+             jRadioButtonWall.setEnabled(true);
+            if (currentPlayer.isGreatWall())
+             jRadioButtonGreatWall.setEnabled(false);
+            else
+             jRadioButtonGreatWall.setEnabled(true);
+            if (currentPlayer.isMarket())
+             jRadioButtonMarket.setEnabled(false);
+            else
+             jRadioButtonMarket.setEnabled(true);
+            if (currentPlayer.isSpecialWeaponSmith())
+             jRadioButtonSpecial.setEnabled(false);
+            else
+             jRadioButtonSpecial.setEnabled(true);
+            if (currentPlayer.isSpecialWeaponSmith())
+             jRadioButtonSiege.setEnabled(false);
+            else
+             jRadioButtonSiege.setEnabled(true);
             player1.counter();
             player2.counter();
         }
