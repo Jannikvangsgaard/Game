@@ -99,7 +99,7 @@ public class Town {
                         if (rest > soldiers[3]) {
 
                             return false;
-                        } else if (soldiers[3] > rest) {
+                        } else if (soldiers[3] >= rest) {
                             soldiers[3] -= rest;
                             return true;
                         }
