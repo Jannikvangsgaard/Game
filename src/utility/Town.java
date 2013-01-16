@@ -118,6 +118,7 @@ public class Town {
 
     public Boolean trainSoldiers(int[] civ) {
         int tot = 0;
+        boolean check = false;
         for (int i = 0; i < 4; i++) {
             tot = tot + civ[i];
         }
@@ -126,26 +127,39 @@ public class Town {
             for (int i = 0; i < 4; i++) {
                 if (civ[i] == civ[0]) {
                     soldiers[0] += civ[i];
+                    totalGold -= civ[i];
+                    check = true;
                 }
                 if (civ[i] == civ[1]) {
                     if (building.isBarrack()) {
                         soldiers[1] += civ[i];
+                        totalGold -= (civ[i] * 1.5);
+                        check = true;
+                    } else {
+                        check = false;
                     }
                 }
                 if (civ[i] == civ[2]) {
                     if (building.isStable()) {
                         soldiers[2] += civ[i];
+                        totalGold -= (civ[i] * 1.5);
+                        check = true;
+                    } else {
+                        check = false;
                     }
                 }
                 if (civ[i] == civ[3]) {
                     if (building.isStable()) {
                         soldiers[3] += civ[i];
-                        return true;
+                        totalGold -= (civ[i] * 3.5);
+                        check = true;
+                    } else {
+                        check = false;
                     }
                 }
             }
         }
-        return false;
+        return check;
     }
 
     public void build(int building) {

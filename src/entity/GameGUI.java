@@ -107,11 +107,6 @@ public class GameGUI extends javax.swing.JFrame {
         jLabel5.setText("Gold");
 
         jTextFieldBuyLInf.setText("0");
-        jTextFieldBuyLInf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuyLInfActionPerformed(evt);
-            }
-        });
         jTextFieldBuyLInf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldBuyLInfKeyReleased(evt);
@@ -119,11 +114,6 @@ public class GameGUI extends javax.swing.JFrame {
         });
 
         jTextFieldBuyHInf.setText("0");
-        jTextFieldBuyHInf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuyHInfActionPerformed(evt);
-            }
-        });
         jTextFieldBuyHInf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldBuyHInfKeyReleased(evt);
@@ -131,11 +121,6 @@ public class GameGUI extends javax.swing.JFrame {
         });
 
         jTextFieldBuyLCav.setText("0");
-        jTextFieldBuyLCav.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuyLCavActionPerformed(evt);
-            }
-        });
         jTextFieldBuyLCav.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldBuyLCavKeyReleased(evt);
@@ -167,11 +152,6 @@ public class GameGUI extends javax.swing.JFrame {
         jLabel10.setText("Convert Soldier");
 
         jTextFieldConvert.setText("0");
-        jTextFieldConvert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldConvertActionPerformed(evt);
-            }
-        });
         jTextFieldConvert.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldConvertKeyReleased(evt);
@@ -258,12 +238,11 @@ public class GameGUI extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelHCav)
-                                .addComponent(jLabelLCav)
-                                .addComponent(jLabelHinf)
-                                .addComponent(jLabelLightInf)
-                                .addComponent(jLabelGold))
+                            .addComponent(jLabelHCav)
+                            .addComponent(jLabelLCav)
+                            .addComponent(jLabelHinf)
+                            .addComponent(jLabelLightInf)
+                            .addComponent(jLabelGold)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextFieldBuyHCav, javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,8 +263,8 @@ public class GameGUI extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jRadioButtonSiege)
-                                            .addComponent(jRadioButtonSpecial))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                            .addComponent(jRadioButtonSpecial))))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonTrain)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -385,35 +364,42 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelLCav.setText("" + currentPlayer.getLCav());
             jLabelHCav.setText("" + currentPlayer.getHCav());
             jLabelCivilians.setText("" + currentPlayer.getCivilian());
-             if (currentPlayer.isBarrack())
-             jRadioButtonBarrack.setEnabled(false);
-            else 
-              jRadioButtonBarrack.setEnabled(true);
-            if (currentPlayer.isStable())
-             jRadioButtonStable.setEnabled(false);
-            else
-              jRadioButtonStable.setEnabled(true);
-            if (currentPlayer.isWall())
-             jRadioButtonWall.setEnabled(false);
-            else
-             jRadioButtonWall.setEnabled(true);
-            if (currentPlayer.isGreatWall())
-             jRadioButtonGreatWall.setEnabled(false);
-            else
-             jRadioButtonGreatWall.setEnabled(true);
-            if (currentPlayer.isMarket())
-             jRadioButtonMarket.setEnabled(false);
-            else
-             jRadioButtonMarket.setEnabled(true);
-            if (currentPlayer.isSpecialWeaponSmith())
-             jRadioButtonSpecial.setEnabled(false);
-            else
-             jRadioButtonSpecial.setEnabled(true);
-            if (currentPlayer.isSpecialWeaponSmith())
-             jRadioButtonSiege.setEnabled(false);
-            else
-             jRadioButtonSiege.setEnabled(true);
-            
+            if (currentPlayer.isBarrack()) {
+                jRadioButtonBarrack.setEnabled(false);
+            } else {
+                jRadioButtonBarrack.setEnabled(true);
+            }
+            if (currentPlayer.isStable()) {
+                jRadioButtonStable.setEnabled(false);
+            } else {
+                jRadioButtonStable.setEnabled(true);
+            }
+            if (currentPlayer.isWall()) {
+                jRadioButtonWall.setEnabled(false);
+            } else {
+                jRadioButtonWall.setEnabled(true);
+            }
+            if (currentPlayer.isGreatWall()) {
+                jRadioButtonGreatWall.setEnabled(false);
+            } else {
+                jRadioButtonGreatWall.setEnabled(true);
+            }
+            if (currentPlayer.isMarket()) {
+                jRadioButtonMarket.setEnabled(false);
+            } else {
+                jRadioButtonMarket.setEnabled(true);
+            }
+            if (currentPlayer.isSpecialWeaponSmith()) {
+                jRadioButtonSpecial.setEnabled(false);
+            } else {
+                jRadioButtonSpecial.setEnabled(true);
+            }
+            if (currentPlayer.isSpecialWeaponSmith()) {
+                jRadioButtonSiege.setEnabled(false);
+            } else {
+                jRadioButtonSiege.setEnabled(true);
+            }
+
             turn++;
         } else if (turn == 2) {
             currentPlayer = player2;
@@ -425,52 +411,47 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelHCav.setText("" + currentPlayer.getHCav());
             jLabelCivilians.setText("" + currentPlayer.getCivilian());
             turn = 1;
-            if (currentPlayer.isBarrack())
-             jRadioButtonBarrack.setEnabled(false);
-            else 
-              jRadioButtonBarrack.setEnabled(true);
-            if (currentPlayer.isStable())
-             jRadioButtonStable.setEnabled(false);
-            else
-              jRadioButtonStable.setEnabled(true);
-            if (currentPlayer.isWall())
-             jRadioButtonWall.setEnabled(false);
-            else
-             jRadioButtonWall.setEnabled(true);
-            if (currentPlayer.isGreatWall())
-             jRadioButtonGreatWall.setEnabled(false);
-            else
-             jRadioButtonGreatWall.setEnabled(true);
-            if (currentPlayer.isMarket())
-             jRadioButtonMarket.setEnabled(false);
-            else
-             jRadioButtonMarket.setEnabled(true);
-            if (currentPlayer.isSpecialWeaponSmith())
-             jRadioButtonSpecial.setEnabled(false);
-            else
-             jRadioButtonSpecial.setEnabled(true);
-            if (currentPlayer.isSpecialWeaponSmith())
-             jRadioButtonSiege.setEnabled(false);
-            else
-             jRadioButtonSiege.setEnabled(true);
+            if (currentPlayer.isBarrack()) {
+                jRadioButtonBarrack.setEnabled(false);
+            } else {
+                jRadioButtonBarrack.setEnabled(true);
+            }
+            if (currentPlayer.isStable()) {
+                jRadioButtonStable.setEnabled(false);
+            } else {
+                jRadioButtonStable.setEnabled(true);
+            }
+            if (currentPlayer.isWall()) {
+                jRadioButtonWall.setEnabled(false);
+            } else {
+                jRadioButtonWall.setEnabled(true);
+            }
+            if (currentPlayer.isGreatWall()) {
+                jRadioButtonGreatWall.setEnabled(false);
+            } else {
+                jRadioButtonGreatWall.setEnabled(true);
+            }
+            if (currentPlayer.isMarket()) {
+                jRadioButtonMarket.setEnabled(false);
+            } else {
+                jRadioButtonMarket.setEnabled(true);
+            }
+            if (currentPlayer.isSpecialWeaponSmith()) {
+                jRadioButtonSpecial.setEnabled(false);
+            } else {
+                jRadioButtonSpecial.setEnabled(true);
+            }
+            if (currentPlayer.isSpecialWeaponSmith()) {
+                jRadioButtonSiege.setEnabled(false);
+            } else {
+                jRadioButtonSiege.setEnabled(true);
+            }
             player1.counter();
             player2.counter();
         }
         jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
 
     }//GEN-LAST:event_jButtonStartActionPerformed
-
-    private void jTextFieldBuyLInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuyLInfActionPerformed
-
-    private void jTextFieldBuyLCavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyLCavActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuyLCavActionPerformed
-
-    private void jTextFieldConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConvertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldConvertActionPerformed
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
         int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0;
@@ -487,15 +468,17 @@ public class GameGUI extends javax.swing.JFrame {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
         }
         currentPlayer.train(soldier1, soldier2, soldier3, soldier4);
-       if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())){
-        amount = Integer.parseInt(jTextFieldConvert.getText()); soldier1 = Integer.parseInt(jLabelLightInf.getText()); soldier2 = Integer.parseInt(jLabelHinf.getText()); soldier3 = Integer.parseInt(jLabelLCav.getText()); soldier4 = Integer.parseInt(jLabelHCav.getText());
-        currentPlayer.convert(amount);
-       }
+        jLabelGold.setText("" + currentPlayer.getGold());
+        jLabelLightInf.setText("" + currentPlayer.getLInf());
+        jLabelHinf.setText("" + currentPlayer.getHInf());
+        jLabelLCav.setText("" + currentPlayer.getLCav());
+        jLabelHCav.setText("" + currentPlayer.getHCav());
+        jLabelCivilians.setText("" + currentPlayer.getCivilian());
+        if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())) {
+            amount = Integer.parseInt(jTextFieldConvert.getText());
+            currentPlayer.convert(amount);
+        }
     }//GEN-LAST:event_jButtonTrainActionPerformed
-
-    private void jTextFieldBuyHInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuyHInfActionPerformed
 
     private void jTextFieldBuyLInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfKeyReleased
         try {
@@ -618,31 +601,66 @@ public class GameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConvertKeyReleased
 
     private void jRadioButtonWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWallActionPerformed
-        currentPlayer.build(3);
+        if (Integer.parseInt(jLabelGold.getText()) >= 80) {
+            currentPlayer.build(3);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonWall.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonWallActionPerformed
 
     private void jRadioButtonSiegeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSiegeActionPerformed
-        currentPlayer.build(7);
+        if (Integer.parseInt(jLabelGold.getText()) >= 300) {
+            currentPlayer.build(7);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonSiege.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonSiegeActionPerformed
 
     private void jRadioButtonBarrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonBarrackActionPerformed
-       currentPlayer.build(1);
+        if (Integer.parseInt(jLabelGold.getText()) >= 10) {
+            currentPlayer.build(1);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonBarrack.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonBarrackActionPerformed
 
     private void jRadioButtonStableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStableActionPerformed
-        currentPlayer.build(2);
+        if (Integer.parseInt(jLabelGold.getText()) >= 50) {
+            currentPlayer.build(2);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonStable.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonStableActionPerformed
 
     private void jRadioButtonGreatWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGreatWallActionPerformed
-       currentPlayer.build(4);
+        if (Integer.parseInt(jLabelGold.getText()) >= 250) {
+            currentPlayer.build(4);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonGreatWall.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonGreatWallActionPerformed
 
     private void jRadioButtonMarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMarketActionPerformed
-        currentPlayer.build(5);
+        if (Integer.parseInt(jLabelGold.getText()) >= 80) {
+            currentPlayer.build(5);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonMarket.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonMarketActionPerformed
 
     private void jRadioButtonSpecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSpecialActionPerformed
-      currentPlayer.build(6);
+        if (Integer.parseInt(jLabelGold.getText()) >= 130) {
+            currentPlayer.build(6);
+            jLabelGold.setText("" + currentPlayer.getGold());
+        } else {
+            jRadioButtonSpecial.setSelected(false);
+        }
     }//GEN-LAST:event_jRadioButtonSpecialActionPerformed
 
     /**
