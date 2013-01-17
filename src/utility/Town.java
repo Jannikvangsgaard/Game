@@ -9,6 +9,7 @@ public class Town {
     private int civilian;
     private int[] soldiers = new int[4];
     private int totalGold;
+    private double damage;
     private Building building;
     private Army army;
 
@@ -34,9 +35,21 @@ public class Town {
         soldiers[3] = soldiers[3] - sol[3];
         army = new Army(sol, name);
     }
+    public void defense(){
+        damage = soldiers[0];
+        damage += soldiers[1] * 1.5;
+        damage += soldiers[2] * 1.5;
+        damage += soldiers[30] * 2.5;
+        
+    }
     public void returnArmy(){
        if (army.isHome()){
-           
+           int[] sol = new int[4];
+            sol = army.getArmy();
+            soldiers[0] += sol[0];
+            soldiers[1] += sol[1];
+            soldiers[2] += sol[2];
+            soldiers[3] += sol[3];
        }
            
            
