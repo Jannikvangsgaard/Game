@@ -18,6 +18,9 @@ public class Player implements Serializable {
         this.name = name;
         town = new Town();
     }
+    public void createArmy(int[] army){
+        town.sendArmy(army, name);
+    }
 
     public void counter() {
         town.counter();

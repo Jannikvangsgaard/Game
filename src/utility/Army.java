@@ -11,7 +11,7 @@ public class Army implements Serializable {
     private boolean onlyCav = false;
     private int[] army;
     private String owner;
-    private int arrival, turn, home=2;
+    private int arrival, home=2;
     private double damage;
     
     public Army(int[] army, String owner){
@@ -29,7 +29,9 @@ public class Army implements Serializable {
         }else{
         arrival = 2;
         }
-        turn = 0;
+    }
+    public double getDamage(){
+        return damage;
     }
     
     public boolean ifOnlyCav(int[] army){
@@ -75,19 +77,11 @@ public class Army implements Serializable {
         return arrival;
     }
 
-    public void setArrival(int arrival) {
-        this.arrival = arrival;
+    public void move() {
+     if (arrival>0){
+         arrival--;
+     }
     }
 
-    public int getTurn() {
-        return turn;
-    }
-
-    public void setTurn(int turn) {
-        this.turn = turn;
-    }
     
-    public void takeTurn(){
-        turn++;
-    }
 }

@@ -18,6 +18,14 @@ public class Control implements Serializable {
             currentPlayer = player1;
         }
     }
+    public void createArmy(int sol1, int sol2, int sol3, int sol4){
+        int[] army = new int[4];
+        army[0] = sol1;
+        army[1] = sol2;
+        army[2] = sol3;
+        army[3] = sol4;
+        currentPlayer.createArmy(army);
+    }
     
     public boolean convert(int amount) {
         return currentPlayer.convert(amount);
