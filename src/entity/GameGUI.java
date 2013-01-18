@@ -482,18 +482,21 @@ public class GameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonStartActionPerformed
 
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
-        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0;
+        int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0, tick = 0;
         if (jTextFieldBuyLInf.getText() != null && !"".equals(jTextFieldBuyLInf.getText())) {
             soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
+
         }
         if (jTextFieldBuyHInf.getText() != null && !"".equals(jTextFieldBuyHInf.getText())) {
             soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
         }
         if (jTextFieldBuyLCav.getText() != null && !"".equals(jTextFieldBuyLCav.getText())) {
             soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
+
         }
         if (jTextFieldBuyHCav.getText() != null && !"".equals(jTextFieldBuyHCav.getText())) {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
+
         }
         currentPlayer.train(soldier1, soldier2, soldier3, soldier4);
         jLabelGold.setText("" + currentPlayer.getGold());
@@ -505,6 +508,30 @@ public class GameGUI extends javax.swing.JFrame {
         if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())) {
             amount = Integer.parseInt(jTextFieldConvert.getText());
             currentPlayer.convert(amount);
+        }
+        if (soldier1 > 0 && currentPlayer.getLInf() > 0) {
+            jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier1 + " Light infantry");
+        }
+        if (soldier2 > 0 && currentPlayer.getHInf() > 0) {
+            if (tick > 0) {
+                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier2 + " Heavy infantry");
+            } else {
+                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier2 + " Heavy infantry");
+            }
+        }
+        if (soldier3 > 0 && currentPlayer.getLCav() > 0) {
+            if (tick > 0) {
+                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier3 + " Light Cavalry");
+            } else {
+                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier3 + " Light Cavalry");
+            }
+        }
+        if (soldier4 > 0 && currentPlayer.getHCav() > 0) {
+            if (tick > 0) {
+                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
+            } else {
+                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
+            }
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
 

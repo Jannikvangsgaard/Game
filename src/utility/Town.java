@@ -43,11 +43,11 @@ public class Town implements Serializable{
         damage += soldiers[2] * 1.5;
         damage += soldiers[30] * 2.5;
         return damage;
+        
     }
     public void returnArmy(){
        if (army.isHome()){
-            int[] sol;
-            sol = army.getArmy();
+           int[] sol = army.getArmy();
             soldiers[0] += sol[0];
             soldiers[1] += sol[1];
             soldiers[2] += sol[2];
@@ -196,44 +196,58 @@ public class Town implements Serializable{
         switch (building) {
             case 1:
                 if (totalGold >= 10) {
+                    if (!this.building.isBarrack()){
                     this.building.setBarrack(true);
                     totalGold -= 10;
+                    }
                 }
                 break;
             case 2:
                 if (totalGold >= 50) {
+                    if (!this.building.isStable()){
                     this.building.setStable(true);
                     totalGold -= 50;
+                    }
                 }
                 break;
             case 3:
                 if (totalGold >= 80) {
+                    if (!this.building.isWall()){
                     this.building.setWall(true);
                     totalGold -= 80;
+                    }
                 }
                 break;
             case 4:
                 if (totalGold >= 250) {
+                    if (this.building.isGreatWall()){
                     this.building.setGreatWall(true);
                     totalGold -= 250;
+                    }
                 }
                 break;
             case 5:
                 if (totalGold >= 80) {
+                    if (this.building.isMarket()){
                     this.building.setMarkte(true);
                     totalGold -= 80;
+                    }
                     break;
                 }
             case 6:
                 if (totalGold >= 130) {
+                    if (this.building.isSpecialWeaponSmith()){
                     this.building.setSpecialWeaponSmith(true);
                     totalGold -= 130;
+                    }
                 }
                 break;
             case 7:
                 if (totalGold >= 300) {
+                    if (this.building.isSiegeEngineHouse()){
                     this.building.setSiegeEngineHouse(true);
                     totalGold -= 300;
+                    }
                 }
                 break;
         }
