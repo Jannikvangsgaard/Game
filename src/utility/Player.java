@@ -1,10 +1,12 @@
 package utility;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jannik
  */
-public class Player {
+public class Player implements Serializable {
 
     private String name;
     private Town town;

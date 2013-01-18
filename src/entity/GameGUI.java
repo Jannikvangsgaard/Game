@@ -5,6 +5,7 @@
 package entity;
 
 import control.Control;
+import control.IO;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -19,10 +20,9 @@ public class GameGUI extends javax.swing.JFrame {
 
     private Control control = new Control();
     private static String player1name, player2name;
-    //  private String[] labels = {"Soldiers: " , "Amount: "},soldiersNames = {"Light Infantry", "Heavy Infantry", "Light Cavalry", "Heavy Cavalry"};
-    //   private SpinnerListModel soldierModel = null;
     private int turn = 0;
     private Player player1, player2, currentPlayer;
+    private IO io = new IO();
 
     /**
      * Creates new form GameGUI
@@ -74,6 +74,10 @@ public class GameGUI extends javax.swing.JFrame {
         jRadioButtonMarket = new javax.swing.JRadioButton();
         jRadioButtonSpecial = new javax.swing.JRadioButton();
         jRadioButtonSiege = new javax.swing.JRadioButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuSave = new javax.swing.JMenuItem();
+        jMenuLoad = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,6 +219,28 @@ public class GameGUI extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("File");
+
+        jMenuSave.setText("Save");
+        jMenuSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSaveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuSave);
+
+        jMenuLoad.setText("Load");
+        jMenuLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuLoadActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuLoad);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,7 +354,7 @@ public class GameGUI extends javax.swing.JFrame {
                     .addComponent(jRadioButtonGreatWall))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 206, Short.MAX_VALUE)
+                        .addGap(66, 185, Short.MAX_VALUE)
                         .addComponent(jButtonStart))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -665,6 +691,23 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRadioButtonSpecialActionPerformed
 
+    private void jMenuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSaveActionPerformed
+        io.save(player1);
+        io.save(player2);
+    }//GEN-LAST:event_jMenuSaveActionPerformed
+
+    private void jMenuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLoadActionPerformed
+        player1 = io.load();
+        player2 = io.load();
+        jLabelCurrentPlayer.setText("" + player1.getName());
+        jLabelGold.setText("" + currentPlayer.getGold());
+        jLabelLightInf.setText("" + currentPlayer.getLInf());
+        jLabelHinf.setText("" + currentPlayer.getHInf());
+        jLabelLCav.setText("" + currentPlayer.getLCav());
+        jLabelHCav.setText("" + currentPlayer.getHCav());
+        jLabelCivilians.setText("" + currentPlayer.getCivilian());
+    }//GEN-LAST:event_jMenuLoadActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -723,6 +766,10 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHinf;
     private javax.swing.JLabel jLabelLCav;
     private javax.swing.JLabel jLabelLightInf;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuLoad;
+    private javax.swing.JMenuItem jMenuSave;
     private javax.swing.JRadioButton jRadioButtonBarrack;
     private javax.swing.JRadioButton jRadioButtonGreatWall;
     private javax.swing.JRadioButton jRadioButtonMarket;

@@ -1,10 +1,12 @@
 package utility;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jannik
  */
-public class Building {
+public class Building implements Serializable {
     
     private boolean barrack;
     private boolean stable;

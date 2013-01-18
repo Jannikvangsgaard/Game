@@ -1,10 +1,12 @@
 package utility;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jannik
  */
-public class Army {
+public class Army implements Serializable {
     
     private boolean onlyCav = false;
     private int[] army;

@@ -1,12 +1,13 @@
 package control;
 
+import java.io.Serializable;
 import utility.Player;
 
 /**
  *
  * @author Jannik
  */
-public class Control {
+public class Control implements Serializable {
     private Player player;
     private int rest;
   

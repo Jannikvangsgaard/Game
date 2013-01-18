@@ -1,15 +1,16 @@
 package utility;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jannik
  */
-public class Town {
+public class Town implements Serializable{
 
     private int civilian;
     private int[] soldiers = new int[4];
     private int totalGold;
-    private double damage;
     private Building building;
     private Army army;
 
@@ -35,24 +36,23 @@ public class Town {
         soldiers[3] = soldiers[3] - sol[3];
         army = new Army(sol, name);
     }
-    public void defense(){
+    public double defense(){
+        double damage;
         damage = soldiers[0];
         damage += soldiers[1] * 1.5;
         damage += soldiers[2] * 1.5;
         damage += soldiers[30] * 2.5;
-        
+        return damage;
     }
     public void returnArmy(){
        if (army.isHome()){
-           int[] sol = new int[4];
+            int[] sol;
             sol = army.getArmy();
             soldiers[0] += sol[0];
             soldiers[1] += sol[1];
             soldiers[2] += sol[2];
             soldiers[3] += sol[3];
-       }
-           
-           
+       } 
     }
 
     
