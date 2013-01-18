@@ -7,7 +7,6 @@ package entity;
 import control.Control;
 import control.IO;
 import javax.swing.JOptionPane;
-import utility.Player;
 
 /**
  *
@@ -17,7 +16,6 @@ public class GameGUI extends javax.swing.JFrame {
 
     private Control con = new Control();
     private static String player1name, player2name;
-    private int turn = 0;
     private IO io = new IO();
 
     /**
