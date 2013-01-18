@@ -6,10 +6,7 @@ package entity;
 
 import control.Control;
 import control.IO;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
 import utility.Player;
 
 /**
@@ -18,10 +15,9 @@ import utility.Player;
  */
 public class GameGUI extends javax.swing.JFrame {
 
-    private Control control = new Control();
+    private Control con = new Control();
     private static String player1name, player2name;
     private int turn = 0;
-    private Player player1, player2, currentPlayer;
     private IO io = new IO();
 
     /**
@@ -377,107 +373,106 @@ public class GameGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
-        if (turn == 0) {
-            player1 = control.createPlayer(player1name);
-            player2 = (Player) control.createPlayer(player2name);
+        if (con.getTurn() == 0) {
+            con.createPlayer(player1name, player2name);
             jButtonStart.setText("Next");
-            turn++;
+            con.setTurn(1);
         }
-        if (turn == 1) {
-            currentPlayer = player1;
-            jLabelCurrentPlayer.setText("" + player1.getName());
-            jLabelGold.setText("" + player1.getGold());
-            jLabelLightInf.setText("" + currentPlayer.getLInf());
-            jLabelHinf.setText("" + currentPlayer.getHInf());
-            jLabelLCav.setText("" + currentPlayer.getLCav());
-            jLabelHCav.setText("" + currentPlayer.getHCav());
-            jLabelCivilians.setText("" + currentPlayer.getCivilian());
-            if (currentPlayer.isBarrack()) {
+        if (con.getTurn() == 1) {
+            con.changePlayer();
+            jLabelCurrentPlayer.setText("" + con.getName());
+            jLabelGold.setText("" + con.getGold());
+            jLabelLightInf.setText("" + con.getLInf());
+            jLabelHinf.setText("" + con.getHInf());
+            jLabelLCav.setText("" + con.getLCav());
+            jLabelHCav.setText("" + con.getHCav());
+            jLabelCivilians.setText("" + con.getCivilian());
+            if (con.isBarrack()) {
                 jRadioButtonBarrack.setEnabled(false);
             } else {
                 jRadioButtonBarrack.setEnabled(true);
             }
-            if (currentPlayer.isStable()) {
+            if (con.isStable()) {
                 jRadioButtonStable.setEnabled(false);
             } else {
                 jRadioButtonStable.setEnabled(true);
             }
-            if (currentPlayer.isWall()) {
+            if (con.isWall()) {
                 jRadioButtonWall.setEnabled(false);
             } else {
                 jRadioButtonWall.setEnabled(true);
             }
-            if (currentPlayer.isGreatWall()) {
+            if (con.isGreatWall()) {
                 jRadioButtonGreatWall.setEnabled(false);
             } else {
                 jRadioButtonGreatWall.setEnabled(true);
             }
-            if (currentPlayer.isMarket()) {
+            if (con.isMarket()) {
                 jRadioButtonMarket.setEnabled(false);
             } else {
                 jRadioButtonMarket.setEnabled(true);
             }
-            if (currentPlayer.isSpecialWeaponSmith()) {
+            if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSpecial.setEnabled(false);
             } else {
                 jRadioButtonSpecial.setEnabled(true);
             }
-            if (currentPlayer.isSpecialWeaponSmith()) {
+            if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSiege.setEnabled(false);
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
-
-            turn++;
-        } else if (turn == 2) {
-            currentPlayer = player2;
-            jLabelCurrentPlayer.setText("" + player2.getName());
-            jLabelGold.setText("" + player2.getGold());
-            jLabelLightInf.setText("" + currentPlayer.getLInf());
-            jLabelHinf.setText("" + currentPlayer.getHInf());
-            jLabelLCav.setText("" + currentPlayer.getLCav());
-            jLabelHCav.setText("" + currentPlayer.getHCav());
-            jLabelCivilians.setText("" + currentPlayer.getCivilian());
-            turn = 1;
-            if (currentPlayer.isBarrack()) {
+            con.setTurn(2);
+        } else if (con.getTurn() == 2) {
+            con.changePlayer();
+            jLabelCurrentPlayer.setText("" + con.getName());
+            jLabelGold.setText("" + con.getGold());
+            jLabelLightInf.setText("" + con.getLInf());
+            jLabelHinf.setText("" + con.getHInf());
+            jLabelLCav.setText("" + con.getLCav());
+            jLabelHCav.setText("" + con.getHCav());
+            jLabelCivilians.setText("" + con.getCivilian());
+            con.setTurn(3);
+            if (con.isBarrack()) {
                 jRadioButtonBarrack.setEnabled(false);
             } else {
                 jRadioButtonBarrack.setEnabled(true);
             }
-            if (currentPlayer.isStable()) {
+            if (con.isStable()) {
                 jRadioButtonStable.setEnabled(false);
             } else {
                 jRadioButtonStable.setEnabled(true);
             }
-            if (currentPlayer.isWall()) {
+            if (con.isWall()) {
                 jRadioButtonWall.setEnabled(false);
             } else {
                 jRadioButtonWall.setEnabled(true);
             }
-            if (currentPlayer.isGreatWall()) {
+            if (con.isGreatWall()) {
                 jRadioButtonGreatWall.setEnabled(false);
             } else {
                 jRadioButtonGreatWall.setEnabled(true);
             }
-            if (currentPlayer.isMarket()) {
+            if (con.isMarket()) {
                 jRadioButtonMarket.setEnabled(false);
             } else {
                 jRadioButtonMarket.setEnabled(true);
             }
-            if (currentPlayer.isSpecialWeaponSmith()) {
+            if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSpecial.setEnabled(false);
             } else {
                 jRadioButtonSpecial.setEnabled(true);
             }
-            if (currentPlayer.isSpecialWeaponSmith()) {
+            if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSiege.setEnabled(false);
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
-            player1.counter();
-            player2.counter();
+        } else if (con.getTurn() == 3) {
+            con.counter();
+            con.setTurn(1);
         }
-        jTextAreaStatus.setText(currentPlayer.getName() + " It's your turn.");
+        jTextAreaStatus.setText(con.getName() + " It's your turn.");
 
     }//GEN-LAST:event_jButtonStartActionPerformed
 
@@ -498,39 +493,39 @@ public class GameGUI extends javax.swing.JFrame {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
 
         }
-        currentPlayer.train(soldier1, soldier2, soldier3, soldier4);
-        jLabelGold.setText("" + currentPlayer.getGold());
-        jLabelLightInf.setText("" + currentPlayer.getLInf());
-        jLabelHinf.setText("" + currentPlayer.getHInf());
-        jLabelLCav.setText("" + currentPlayer.getLCav());
-        jLabelHCav.setText("" + currentPlayer.getHCav());
-        jLabelCivilians.setText("" + currentPlayer.getCivilian());
+        con.train(soldier1, soldier2, soldier3, soldier4);
+        jLabelGold.setText("" + con.getGold());
+        jLabelLightInf.setText("" + con.getLInf());
+        jLabelHinf.setText("" + con.getHInf());
+        jLabelLCav.setText("" + con.getLCav());
+        jLabelHCav.setText("" + con.getHCav());
+        jLabelCivilians.setText("" + con.getCivilian());
         if (jTextFieldConvert.getText() != null && !"".equals(jTextFieldConvert.getText())) {
             amount = Integer.parseInt(jTextFieldConvert.getText());
-            currentPlayer.convert(amount);
+            con.convert(amount);
         }
-        if (soldier1 > 0 && currentPlayer.getLInf() > 0) {
-            jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier1 + " Light infantry");
+        if (soldier1 > 0 && con.getLInf() > 0) {
+            jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier1 + " Light infantry");
         }
-        if (soldier2 > 0 && currentPlayer.getHInf() > 0) {
+        if (soldier2 > 0 && con.getHInf() > 0) {
             if (tick > 0) {
-                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier2 + " Heavy infantry");
+                jTextAreaStatus.append(con.getName() + " You have trained: " + soldier2 + " Heavy infantry");
             } else {
-                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier2 + " Heavy infantry");
+                jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier2 + " Heavy infantry");
             }
         }
-        if (soldier3 > 0 && currentPlayer.getLCav() > 0) {
+        if (soldier3 > 0 && con.getLCav() > 0) {
             if (tick > 0) {
-                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier3 + " Light Cavalry");
+                jTextAreaStatus.append(con.getName() + " You have trained: " + soldier3 + " Light Cavalry");
             } else {
-                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier3 + " Light Cavalry");
+                jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier3 + " Light Cavalry");
             }
         }
-        if (soldier4 > 0 && currentPlayer.getHCav() > 0) {
+        if (soldier4 > 0 && con.getHCav() > 0) {
             if (tick > 0) {
-                jTextAreaStatus.append(currentPlayer.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
+                jTextAreaStatus.append(con.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
             } else {
-                jTextAreaStatus.setText(currentPlayer.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
+                jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
             }
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
@@ -657,8 +652,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWallActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 80) {
-            currentPlayer.build(3);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(3);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonWall.setSelected(false);
         }
@@ -666,8 +661,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonSiegeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSiegeActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 300) {
-            currentPlayer.build(7);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(7);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonSiege.setSelected(false);
         }
@@ -675,8 +670,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonBarrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonBarrackActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 10) {
-            currentPlayer.build(1);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(1);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonBarrack.setSelected(false);
         }
@@ -684,8 +679,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonStableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStableActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 50) {
-            currentPlayer.build(2);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(2);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonStable.setSelected(false);
         }
@@ -693,8 +688,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonGreatWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGreatWallActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 250) {
-            currentPlayer.build(4);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(4);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonGreatWall.setSelected(false);
         }
@@ -702,8 +697,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonMarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMarketActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 80) {
-            currentPlayer.build(5);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(5);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonMarket.setSelected(false);
         }
@@ -711,28 +706,26 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jRadioButtonSpecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSpecialActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 130) {
-            currentPlayer.build(6);
-            jLabelGold.setText("" + currentPlayer.getGold());
+            con.build(6);
+            jLabelGold.setText("" + con.getGold());
         } else {
             jRadioButtonSpecial.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonSpecialActionPerformed
 
     private void jMenuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSaveActionPerformed
-        io.save(player1);
-        io.save(player2);
+        io.save(con);
     }//GEN-LAST:event_jMenuSaveActionPerformed
 
     private void jMenuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLoadActionPerformed
-        player1 = io.load();
-        player2 = io.load();
-        jLabelCurrentPlayer.setText("" + player1.getName());
-        jLabelGold.setText("" + currentPlayer.getGold());
-        jLabelLightInf.setText("" + currentPlayer.getLInf());
-        jLabelHinf.setText("" + currentPlayer.getHInf());
-        jLabelLCav.setText("" + currentPlayer.getLCav());
-        jLabelHCav.setText("" + currentPlayer.getHCav());
-        jLabelCivilians.setText("" + currentPlayer.getCivilian());
+        con = io.load();
+        jLabelCurrentPlayer.setText("" + con.getName());
+        jLabelGold.setText("" + con.getGold());
+        jLabelLightInf.setText("" + con.getLInf());
+        jLabelHinf.setText("" + con.getHInf());
+        jLabelLCav.setText("" + con.getLCav());
+        jLabelHCav.setText("" + con.getHCav());
+        jLabelCivilians.setText("" + con.getCivilian());
     }//GEN-LAST:event_jMenuLoadActionPerformed
 
     /**

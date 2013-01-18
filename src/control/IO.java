@@ -18,18 +18,11 @@ import utility.*;
 public class IO {
     int count = 0;
 
-    public void save(Player pla) {
-        String file;
-        if (count == 0){
-            file = "save1.ser";
-            count ++;
-        } else {
-            file = "save2.ser";
-        }
+    public void save(Control con) {
         try {
-            FileOutputStream writer = new FileOutputStream(new File(file));
+            FileOutputStream writer = new FileOutputStream(new File("saveData.ser"));
             ObjectOutputStream out = new ObjectOutputStream(writer);
-            out.writeObject(pla);
+            out.writeObject(con);
             out.flush();
             out.close();
             writer.flush();
@@ -39,24 +32,17 @@ public class IO {
         }
     }
 
-    public Player load() {
-        String file;
-        if (count == 1){
-            file = "save1.ser";
-            count ++;
-        } else {
-            file = "save2.ser";
-        }
-        Player pla= null;
+    public Control load() {
+        Control con= null;
         try {
             FileInputStream fileIn =
-                    new FileInputStream(file);
+                    new FileInputStream("saveData.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            pla = (Player) in.readObject();
+            con = (Control) in.readObject();
             in.close();
             fileIn.close();
         } catch (Exception ex) {
         }
-        return pla;
+        return con;
     }
 }
