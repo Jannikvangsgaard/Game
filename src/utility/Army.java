@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 public class Army implements Serializable {
     
+    
     private boolean onlyCav = false;
     private int[] army;
     private String owner;

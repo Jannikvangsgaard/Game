@@ -8,6 +8,7 @@ import utility.Player;
  * @author Jannik
  */
 public class Control implements Serializable {
+    
     private Player player1, player2, currentPlayer;
     private int turn = 0;
     

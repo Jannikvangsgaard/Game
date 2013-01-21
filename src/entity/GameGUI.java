@@ -18,6 +18,7 @@ public class GameGUI extends javax.swing.JFrame {
     private static String player1name, player2name;
     private IO io = new IO();
 
+    
     /**
      * Creates new form GameGUI
      */
