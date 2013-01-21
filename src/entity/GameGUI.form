@@ -428,6 +428,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Press Start, to start the game.&#xa;&#xa;Train button, will train the choosen unit&apos;s.&#xa;&#xa;Attack button, will send the choosen amount of unit&apos;s towards your enemy"/>
           </Properties>
         </Component>
       </SubComponents>
