@@ -22,11 +22,10 @@ public class Town implements Serializable{
     
     public void counter() {
         
-//        if (army.getArrival()==0&& army.getArmy()!=null){
-//            
-//        } else if (army.getArmy()!=null) {
-//        army.move();
-//        }
+        if (army != null && army.getArrival()==0){
+        } else if (army !=null) {
+        army.move();
+        }
         if (army != null && army.isHome()){
             int[] sol = army.getArmy();
             soldiers[0] += sol[0];

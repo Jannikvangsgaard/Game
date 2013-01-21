@@ -30,7 +30,6 @@ public class Army implements Serializable {
         }else{
         arrival = 2;
         }
-        System.out.println(damage);
         
     }
     public double getDamage(){
