@@ -17,6 +17,7 @@ public class Army implements Serializable {
     
     public Army(int[] army, String owner){
        double amount = army[0];
+       this.army = army;
         damage = amount;
         amount = army[1];
         damage += 1.5 * amount;

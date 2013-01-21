@@ -1,6 +1,7 @@
 package utility;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,12 +10,14 @@ import java.io.Serializable;
 public class Town implements Serializable{
 
     private int civilian;
+    private ArrayList<Army> armies = new ArrayList<Army>();
     private int[] soldiers = new int[4];
     private int totalGold;
     private Building building;
     private Army army;
 
     public Town() {
+        
         civilian = 10;
         totalGold = 10;
         building = new Building();
@@ -49,6 +52,7 @@ public class Town implements Serializable{
         soldiers[2] = soldiers[2] - sol[2];
         soldiers[3] = soldiers[3] - sol[3];
         army = new Army(sol, name);
+        armies.add(army);
     }
     public double defense(){
         double damage;
