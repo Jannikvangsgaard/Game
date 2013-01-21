@@ -26,7 +26,7 @@ public class Town implements Serializable{
 //        } else if (army.getArmy()!=null) {
 //        army.move();
 //        }
-        if (army.isHome()){
+        if (army != null && army.isHome()){
             int[] sol = army.getArmy();
             soldiers[0] += sol[0];
             soldiers[1] += sol[1];
