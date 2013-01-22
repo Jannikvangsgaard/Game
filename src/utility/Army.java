@@ -46,16 +46,11 @@ public class Army implements Serializable {
         return false;
     }
     public boolean isHome(){
-        if (home==2||home==1){
-            if (arrival ==0 ){
-               return false;
-            }else if(home==0)
-            {
-            return true;
-        }
-        }
-        
+      if (home==0){
+          return true;
+      }
         return false;
+        
     }
     
     public boolean isOnlyCav() {
