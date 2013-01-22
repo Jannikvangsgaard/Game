@@ -11,11 +11,10 @@ public class Army implements Serializable {
     
     private boolean onlyCav = false;
     private int[] army;
-    private String owner;
     private int arrival, home=2;
     private double damage;
     
-    public Army(int[] army, String owner){
+    public Army(int[] army){
        double amount = army[0];
        this.army = army;
         damage = amount;
@@ -25,7 +24,6 @@ public class Army implements Serializable {
         damage += 1.5 * amount;
         amount = army[3];
         damage += 2.5 * amount;
-        this.owner = owner;
         if (ifOnlyCav(army)){
             arrival =1;
         }else{
@@ -60,15 +58,6 @@ public class Army implements Serializable {
 
     public int[] getArmy() {
         return army;
-    }
-
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
     public int getArrival() {

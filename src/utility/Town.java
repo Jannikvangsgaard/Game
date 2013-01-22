@@ -56,7 +56,7 @@ public class Town implements Serializable {
         soldiers[1] = soldiers[1] - sol[1];
         soldiers[2] = soldiers[2] - sol[2];
         soldiers[3] = soldiers[3] - sol[3];
-        armies.add(new Army(sol, name));
+        armies.add(new Army(sol));
     }
 
     public double defense() {
