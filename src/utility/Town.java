@@ -14,7 +14,7 @@ public class Town implements Serializable {
     private int[] soldiers = new int[4];
     private int totalGold;
     private Building building;
-
+    
     public Town() {
 
         civilian = 10;
@@ -63,6 +63,8 @@ public class Town implements Serializable {
                 soldiers[1] += sol[1];
                 soldiers[2] += sol[2];
                 soldiers[3] += sol[3];
+                armies.remove(i);
+                i--;
             }
         }
         int num = civilian / 2;
@@ -73,11 +75,12 @@ public class Town implements Serializable {
         civilian += num;
 
     }
-
-    public String armyInfo() {
-        String res = null;
-        for (int i = 0; i < armies.size(); i++) {
-            res += armies.get(i).toString();
+    public String armyInfo(){
+        String res = "";
+        for (int i=0; i<armies.size();i++){
+            if (armies.get(i).toString()!=null){
+        res += armies.get(i).toString();
+        }
         }
         return res;
     }

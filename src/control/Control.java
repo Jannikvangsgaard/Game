@@ -156,4 +156,16 @@ public class Control implements Serializable {
     public String getPlayerName2() {
         return player2.getName();
     }
+    public int getPlayer1Civilian(){
+        return player1.getCivilian();
+    }
+    public int getPlayer2Civilian(){
+        return player2.getCivilian();
+    }
+    public int getPlayer1Gold(){
+        return player1.getGold();
+    }
+    public int getPlayer2Gold(){
+        return player2.getGold();
+    }
 }
