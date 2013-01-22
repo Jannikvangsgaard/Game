@@ -13,12 +13,11 @@ import javax.swing.JOptionPane;
  * @author computer
  */
 public class GameGUI extends javax.swing.JFrame {
-    
+
     private Control con = new Control();
     private static String player1name, player2name;
     private IO io = new IO();
 
-    
     /**
      * Creates new form GameGUI
      */
@@ -522,6 +521,8 @@ public class GameGUI extends javax.swing.JFrame {
                 jRadioButtonSiege.setEnabled(true);
             }
             con.setTurn(2);
+            jTextAreaStatus.setText(con.getName() + " It's your turn.");
+            jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 2) {
             con.changePlayer();
             jLabelCurrentPlayer.setText("" + con.getName());
@@ -567,32 +568,31 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jTextAreaStatus.setText(con.getName() + " It's your turn.");
+            jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
             con.counter();
-            jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1) );
+            jTextAreaStatus.setText(con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
             con.setTurn(1);
         }
-        jTextAreaStatus.setText(con.getName() + " It's your turn.");
-        jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
-        
     }//GEN-LAST:event_jButtonStartActionPerformed
-    
+
     private void jButtonTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrainActionPerformed
         int soldier1 = 0, soldier2 = 0, soldier3 = 0, soldier4 = 0, amount = 0, tick = 0;
         if (jTextFieldBuyLInf.getText() != null && !"".equals(jTextFieldBuyLInf.getText())) {
             soldier1 = Integer.parseInt(jTextFieldBuyLInf.getText());
-            
+
         }
         if (jTextFieldBuyHInf.getText() != null && !"".equals(jTextFieldBuyHInf.getText())) {
             soldier2 = Integer.parseInt(jTextFieldBuyHInf.getText());
         }
         if (jTextFieldBuyLCav.getText() != null && !"".equals(jTextFieldBuyLCav.getText())) {
             soldier3 = Integer.parseInt(jTextFieldBuyLCav.getText());
-            
+
         }
         if (jTextFieldBuyHCav.getText() != null && !"".equals(jTextFieldBuyHCav.getText())) {
             soldier4 = Integer.parseInt(jTextFieldBuyHCav.getText());
-            
+
         }
         con.train(soldier1, soldier2, soldier3, soldier4);
         jLabelGold.setText("" + con.getGold());
@@ -630,7 +630,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
-    
+
     private void jTextFieldBuyLInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyLInfKeyReleased
         try {
             Integer.parseInt(jTextFieldBuyLInf.getText());
@@ -654,7 +654,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldBuyLInfKeyReleased
-    
+
     private void jTextFieldBuyHInfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyHInfKeyReleased
         try {
             Integer.parseInt(jTextFieldBuyHInf.getText());
@@ -678,7 +678,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldBuyHInfKeyReleased
-    
+
     private void jTextFieldBuyLCavKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyLCavKeyReleased
         try {
             Integer.parseInt(jTextFieldBuyLCav.getText());
@@ -702,7 +702,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldBuyLCavKeyReleased
-    
+
     private void jTextFieldBuyHCavKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuyHCavKeyReleased
         try {
             Integer.parseInt(jTextFieldBuyHCav.getText());
@@ -726,7 +726,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldBuyHCavKeyReleased
-    
+
     private void jTextFieldConvertKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldConvertKeyReleased
         try {
             Integer.parseInt(jTextFieldConvert.getText());
@@ -750,7 +750,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldConvertKeyReleased
-    
+
     private void jRadioButtonWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWallActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 80) {
             con.build(3);
@@ -759,7 +759,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonWall.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonWallActionPerformed
-    
+
     private void jRadioButtonSiegeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSiegeActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 300) {
             con.build(7);
@@ -768,7 +768,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonSiege.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonSiegeActionPerformed
-    
+
     private void jRadioButtonBarrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonBarrackActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 10) {
             con.build(1);
@@ -777,7 +777,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonBarrack.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonBarrackActionPerformed
-    
+
     private void jRadioButtonStableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStableActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 50) {
             con.build(2);
@@ -786,7 +786,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonStable.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonStableActionPerformed
-    
+
     private void jRadioButtonGreatWallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGreatWallActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 250) {
             con.build(4);
@@ -795,7 +795,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonGreatWall.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonGreatWallActionPerformed
-    
+
     private void jRadioButtonMarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMarketActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 80) {
             con.build(5);
@@ -804,7 +804,7 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonMarket.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonMarketActionPerformed
-    
+
     private void jRadioButtonSpecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSpecialActionPerformed
         if (Integer.parseInt(jLabelGold.getText()) >= 130) {
             con.build(6);
@@ -813,11 +813,11 @@ public class GameGUI extends javax.swing.JFrame {
             jRadioButtonSpecial.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonSpecialActionPerformed
-    
+
     private void jMenuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSaveActionPerformed
         io.save(con);
     }//GEN-LAST:event_jMenuSaveActionPerformed
-    
+
     private void jMenuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLoadActionPerformed
         con = io.load();
         jLabelCurrentPlayer.setText("" + con.getName());
@@ -828,7 +828,7 @@ public class GameGUI extends javax.swing.JFrame {
         jLabelHCav.setText("" + con.getHCav());
         jLabelCivilians.setText("" + con.getCivilian());
     }//GEN-LAST:event_jMenuLoadActionPerformed
-    
+
     private void jTextFieldAttack1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAttack1KeyReleased
         try {
             Integer.parseInt(jTextFieldAttack1.getText());
@@ -852,7 +852,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldAttack1KeyReleased
-    
+
     private void jTextFieldAttack2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAttack2KeyReleased
         try {
             Integer.parseInt(jTextFieldAttack2.getText());
@@ -876,7 +876,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldAttack2KeyReleased
-    
+
     private void jTextFieldAttack3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAttack3KeyReleased
         try {
             Integer.parseInt(jTextFieldAttack3.getText());
@@ -900,7 +900,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldAttack3KeyReleased
-    
+
     private void jTextFieldAttack4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAttack4KeyReleased
         try {
             Integer.parseInt(jTextFieldAttack4.getText());
@@ -924,12 +924,12 @@ public class GameGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextFieldAttack4KeyReleased
-    
+
     private void jButtonAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttackActionPerformed
         if (jTextFieldAttack1.getText() != null && jTextFieldAttack2.getText() != null && jTextFieldAttack3.getText() != null && jTextFieldAttack4.getText() != null) {
             int sol1 = Integer.parseInt(jTextFieldAttack1.getText()), sol2 = Integer.parseInt(jTextFieldAttack2.getText()), sol3 = Integer.parseInt(jTextFieldAttack3.getText()), sol4 = Integer.parseInt(jTextFieldAttack4.getText());
             if (Integer.parseInt(jLabelLightInf.getText()) >= sol1 && Integer.parseInt(jLabelHinf.getText()) >= sol2 && Integer.parseInt(jLabelLCav.getText()) >= sol3 && Integer.parseInt(jLabelHCav.getText()) >= sol4) {
-                
+
                 jTextAreaStatus.setText("You are attacking with:");
                 if (sol1 > 0) {
                     jTextAreaStatus.append("\nLight Infantry: " + sol1);
@@ -944,7 +944,7 @@ public class GameGUI extends javax.swing.JFrame {
                     jTextAreaStatus.append("\nHeavy Cavalry: " + sol4);
                 }
                 con.createArmy(sol1, sol2, sol3, sol4);
-                
+
             }
         } else if (jTextFieldAttack1.getText() == null || jTextFieldAttack2.getText() == null || jTextFieldAttack3.getText() == null || jTextFieldAttack4.getText() == null) {
             jTextAreaStatus.setText("Attack failed, you forgot to fill out every soldier type");
@@ -984,7 +984,7 @@ public class GameGUI extends javax.swing.JFrame {
                 new GameGUI().setVisible(true);
                 player1name = JOptionPane.showInputDialog(null, "Player 1 write your name");
                 player2name = JOptionPane.showInputDialog(null, "Player 2 write your name");
-                
+
             }
         });
     }

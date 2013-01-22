@@ -121,6 +121,14 @@ public class Town implements Serializable {
         return soldiers[3];
     }
 
+    public ArrayList<Army> getArmies() {
+        return armies;
+    }
+
+    public void setArmies(ArrayList<Army> armies) {
+        this.armies = armies;
+    }
+
     public Boolean convertSoldiers(int amount) {
         int rest;
         int tot = 0;

@@ -1,14 +1,13 @@
 package utility;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author Jannik
  */
 public class Player implements Serializable {
-    
-
     private String name;
     private Town town;
     private int[] sol = new int[4];
@@ -19,6 +18,7 @@ public class Player implements Serializable {
         this.name = name;
         town = new Town();
     }
+    
     public void createArmy(int[] army){
         town.sendArmy(army, name);
     }
@@ -100,5 +100,9 @@ public class Player implements Serializable {
 
     public boolean convert(int amount) {
         return town.convertSoldiers(amount);
+    }
+    
+    public ArrayList<Army> getArmy(){
+        return town.getArmies();
     }
 }
