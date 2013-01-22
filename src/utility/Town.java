@@ -242,7 +242,7 @@ public class Town implements Serializable {
                     }
                 }
                 if (civ[i] == civ[3]) {
-                    if (building.isStable()&&totalGold>=civ[i]*2.5) {
+                    if (building.isStable()&&totalGold>=civ[i]*3.5) {
                         soldiers[3] += civ[i];
                         totalGold -= (civ[i] * 3.5);
                         check = true;

@@ -676,12 +676,12 @@ public class GameGUI extends javax.swing.JFrame {
                 jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
             }
             con.setTurn(1);
-            if (con.hasLost(con.getPlayer1())){
-                 jTextAreaStatus.setLocation(1500, 2500);
-                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
+            if (con.hasLost(con.getPlayer1())) {
+                jTextAreaStatus.setLocation(1500, 2500);
+                jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName2() + " has won!\n\nCongratulations!!");
                 jButtonStart.setEnabled(false);
-            } else if (con.hasLost(con.getPlayer2())){
+            } else if (con.hasLost(con.getPlayer2())) {
                 jTextAreaStatus.setLocation(1500, 2500);
                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " has won!\n\nCongratulations!!");
@@ -750,13 +750,13 @@ public class GameGUI extends javax.swing.JFrame {
         } else if (soldier3 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier3 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier3) {
             jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4 * 2.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
+        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4 * 3.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier4 + " Heavy Cavalry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
             }
-        } else if (soldier4 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier4 * 2.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier4) {
+        } else if (soldier4 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier4 * 3.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier4) {
             jTextAreaStatus.setText("failed to train unit");
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
@@ -886,7 +886,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(3);
             jLabelGold.setText("" + con.getGold());
         } else {
-            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 80 );
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 80);
             jRadioButtonWall.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonWallActionPerformed
@@ -957,13 +957,30 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jMenuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLoadActionPerformed
         con = io.load();
-        jLabelCurrentPlayer.setText("" + con.getName());
-        jLabelGold.setText("" + con.getGold());
-        jLabelLightInf.setText("" + con.getLInf());
-        jLabelHinf.setText("" + con.getHInf());
-        jLabelLCav.setText("" + con.getLCav());
-        jLabelHCav.setText("" + con.getHCav());
-        jLabelCivilians.setText("" + con.getCivilian());
+
+        if (con.getTurn() == 3) {
+            if (con.armyinfo(0) != null || con.armyinfo(1)!= null) {
+                jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
+                jTextAreaStatus.append(con.getPlayerName1() + " your town consists of: " + con.getPlayer1Civilian() + " Civilians and " + con.getPlayer1Gold() + " Gold");
+                jTextAreaStatus.append(con.getPlayerName2() + " your town consists of: " + con.getPlayer2Civilian() + " Civilians and " + con.getPlayer2Gold() + " Gold");
+            } else {
+                jTextAreaStatus.setText(con.getPlayerName1() + " your town consists of: " + con.getPlayer1Civilian() + " Civilians and " + con.getPlayer1Gold() + " Gold");
+                jTextAreaStatus.append(con.getPlayerName2() + " your town consists of: " + con.getPlayer2Civilian() + " Civilians and " + con.getPlayer2Gold() + " Gold");
+            }
+           
+            
+
+
+        } else {
+            jLabelCurrentPlayer.setText("" + con.getName());
+            jLabelGold.setText("" + con.getGold());
+            jLabelLightInf.setText("" + con.getLInf());
+            jLabelHinf.setText("" + con.getHInf());
+            jLabelLCav.setText("" + con.getLCav());
+            jLabelHCav.setText("" + con.getHCav());
+            jLabelCivilians.setText("" + con.getCivilian());
+
+        }
     }//GEN-LAST:event_jMenuLoadActionPerformed
 
     private void jTextFieldAttack1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAttack1KeyReleased
