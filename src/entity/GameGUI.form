@@ -104,9 +104,9 @@
                                   <Component id="jTextFieldBuyHCav" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldBuyLCav" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldBuyHInf" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldBuyLInf" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabelCivilians" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldConvert" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldBuyLInf" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -331,13 +331,6 @@
     <Component class="javax.swing.JTextField" name="jTextFieldBuyLInf">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
-        <Property name="autoscrolls" type="boolean" value="false"/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Text Cursor"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[12, 20]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuyLInfKeyReleased"/>
