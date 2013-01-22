@@ -44,7 +44,7 @@ public class Town implements Serializable {
 
     }
     public String armyInfo(){
-        String res = null;
+        String res = "";
         for (int i=0; i<armies.size();i++){
         res += armies.get(i).toString();
         }

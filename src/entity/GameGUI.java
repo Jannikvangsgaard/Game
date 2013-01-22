@@ -478,7 +478,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.setTurn(1);
         }
         if (con.getTurn() == 1) {
-        
+
             con.changePlayer();
             jLabelCurrentPlayer.setText("" + con.getName());
             jLabelGold.setText("" + con.getGold());
@@ -524,11 +524,11 @@ public class GameGUI extends javax.swing.JFrame {
             }
             con.setTurn(2);
             p1civ = Integer.parseInt(jLabelCivilians.getText());
-            p2gold = Integer.parseInt(jLabelGold.getText());
+            p1gold = Integer.parseInt(jLabelGold.getText());
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 2) {
-            
+
             con.changePlayer();
             jLabelCurrentPlayer.setText("" + con.getName());
             jLabelGold.setText("" + con.getGold());
@@ -578,23 +578,24 @@ public class GameGUI extends javax.swing.JFrame {
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
-            
+
             con.counter();
             if (con.armyinfo(0) != null) {
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
             }
             if (con.armyinfo(1) != null) {
                 jTextAreaStatus.setText(con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
-            } if (con.armyinfo(1) != null && con.armyinfo(0)!=null){
-                System.out.println("hej");
-                jTextAreaStatus.setText(con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian()-p1civ) +" Civilians and " + (con.getPlayer1Gold()-p1gold)  +" Gold");
+            }
+            if (con.armyinfo(1) == null && con.armyinfo(0) == null) {
+                System.out.println(con.getPlayer1Gold() + "\n" + p1gold);
+                jTextAreaStatus.setText(con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian() - p1civ) + " Civilians and " + (con.getPlayer1Gold() - p1gold) + " Gold");
+                jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
+            } else {
+                jTextAreaStatus.append("\n\n" +con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian() - p1civ) + " Civilians and " + (con.getPlayer1Gold() - p1gold) + " Gold");
+                jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
             }
             con.setTurn(1);
-            
 
-        } else if (con.getTurn() == 2 || con.getTurn() == 1) {
-            jTextAreaStatus.setText(con.getName() + " It's your turn.");
-            jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         }
     }//GEN-LAST:event_jButtonStartActionPerformed
 
