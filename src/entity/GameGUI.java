@@ -24,6 +24,7 @@ public class GameGUI extends javax.swing.JFrame {
      */
     public GameGUI() {
         initComponents();
+        jTextAreaStatus.setEditable(false);
     }
 
     /**
@@ -629,9 +630,9 @@ public class GameGUI extends javax.swing.JFrame {
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
-             
-            
-             
+
+
+
             jLabel12.setVisible(false);
             jLabelCivilians.setVisible(false);
             jLabelGold.setVisible(false);
@@ -716,29 +717,37 @@ public class GameGUI extends javax.swing.JFrame {
             amount = Integer.parseInt(jTextFieldConvert.getText());
             con.convert(amount);
         }
-        if (soldier1 > 0 && con.getLInf() > 0) {
+        if (soldier1 > 0 && con.getLInf() > 0 && Integer.parseInt(jLabelGold.getText()) > soldier1 && Integer.parseInt(jLabelCivilians.getText()) > soldier1) {
             jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier1 + " Light infantry");
+        } else if (soldier1 > 0 && Integer.parseInt(jLabelGold.getText()) < soldier1 || Integer.parseInt(jLabelCivilians.getText()) <= soldier1) {
+            jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier2 > 0 && con.getHInf() > 0) {
+        if (soldier2 > 0 && con.getHInf() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier2 * 1.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier2) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier2 + " Heavy infantry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier2 + " Heavy infantry");
             }
+        } else if (soldier2 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier2 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier2) {
+            jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier3 > 0 && con.getLCav() > 0) {
+        if (soldier3 > 0 && con.getLCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier3 * 1.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier3) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier3 + " Light Cavalry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier3 + " Light Cavalry");
             }
+        } else if (soldier3 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier3 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier3) {
+            jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier4 > 0 && con.getHCav() > 0) {
+        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4 * 2.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier4 + " Heavy Cavalry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
             }
+        } else if (soldier4 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier4 * 2.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier4) {
+            jTextAreaStatus.setText("failed to train unit");
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
 
@@ -867,6 +876,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(3);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 80 );
             jRadioButtonWall.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonWallActionPerformed
@@ -876,6 +886,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(7);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 300);
             jRadioButtonSiege.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonSiegeActionPerformed
@@ -885,6 +896,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(1);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 10);
             jRadioButtonBarrack.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonBarrackActionPerformed
@@ -894,6 +906,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(2);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 50);
             jRadioButtonStable.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonStableActionPerformed
@@ -903,6 +916,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(4);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 250);
             jRadioButtonGreatWall.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonGreatWallActionPerformed
@@ -912,6 +926,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(5);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 80);
             jRadioButtonMarket.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonMarketActionPerformed
@@ -921,6 +936,7 @@ public class GameGUI extends javax.swing.JFrame {
             con.build(6);
             jLabelGold.setText("" + con.getGold());
         } else {
+            jTextAreaStatus.setText("Failed to build the chosen building, it costs: " + 130);
             jRadioButtonSpecial.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonSpecialActionPerformed

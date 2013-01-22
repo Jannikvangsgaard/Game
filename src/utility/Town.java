@@ -100,7 +100,7 @@ public class Town implements Serializable {
         defense = soldiers[0];
         defense += soldiers[1] * 1.5;
         defense += soldiers[2] * 1.5;
-        defense += soldiers[30] * 2.5;
+        defense += soldiers[3] * 2.5;
         if (building.isWall()) {
             defense += 10;
         }
@@ -217,13 +217,13 @@ public class Town implements Serializable {
         if (civilian - tot > 1) {
             civilian = civilian - tot;
             for (int i = 0; i < 4; i++) {
-                if (civ[i] == civ[0]) {
+                if (civ[i] == civ[0]&&totalGold>=civ[i]) {
                     soldiers[0] += civ[i];
                     totalGold -= civ[i];
                     check = true;
                 }
                 if (civ[i] == civ[1]) {
-                    if (building.isBarrack()) {
+                    if (building.isBarrack()&&totalGold>=civ[i]*1.5) {
                         soldiers[1] += civ[i];
                         totalGold -= (civ[i] * 1.5);
                         check = true;
@@ -232,7 +232,7 @@ public class Town implements Serializable {
                     }
                 }
                 if (civ[i] == civ[2]) {
-                    if (building.isStable()) {
+                    if (building.isStable()&&totalGold>=civ[i]*1.5) {
                         soldiers[2] += civ[i];
                         totalGold -= (civ[i] * 1.5);
                         check = true;
@@ -241,7 +241,7 @@ public class Town implements Serializable {
                     }
                 }
                 if (civ[i] == civ[3]) {
-                    if (building.isStable()) {
+                    if (building.isStable()&&totalGold>=civ[i]*2.5) {
                         soldiers[3] += civ[i];
                         totalGold -= (civ[i] * 3.5);
                         check = true;
