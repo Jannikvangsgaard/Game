@@ -23,7 +23,7 @@ public class Town implements Serializable {
     }
 
     public void counter() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < armies.size(); i++) {
             if (armies != null) {
                 armies.get(i).move();
             }
