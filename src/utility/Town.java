@@ -26,6 +26,8 @@ public class Town implements Serializable{
     public void counter() {
         
         if (army != null && army.getArrival()==0){
+            army.isHome();
+            
         } else if (army !=null) {
         army.move();
         }
