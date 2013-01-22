@@ -929,7 +929,7 @@ public class GameGUI extends javax.swing.JFrame {
             int sol1 = Integer.parseInt(jTextFieldAttack1.getText()), sol2 = Integer.parseInt(jTextFieldAttack2.getText()), sol3 = Integer.parseInt(jTextFieldAttack3.getText()), sol4 = Integer.parseInt(jTextFieldAttack4.getText());
             if (Integer.parseInt(jLabelLightInf.getText()) >= sol1 && Integer.parseInt(jLabelHinf.getText()) >= sol2 && Integer.parseInt(jLabelLCav.getText()) >= sol3 && Integer.parseInt(jLabelHCav.getText()) >= sol4) {
                 
-                jTextAreaStatus.setText("You've trained:");
+                jTextAreaStatus.setText("You are attacking with:");
                 if (sol1 > 0) {
                     jTextAreaStatus.append("\nLight Infantry: " + sol1);
                 }
