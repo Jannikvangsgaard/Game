@@ -113,4 +113,8 @@ public class Player implements Serializable {
     public ArrayList<Army> getArmy() {
         return town.getArmies();
     }
+    
+    public void setArmies(ArrayList<Army> armies) {
+        town.setArmies(armies);
+    }
 }

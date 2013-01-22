@@ -81,7 +81,7 @@ public class Army implements Serializable {
     public void move() {
      if (arrival>0){
          arrival--;
-     } else if (arrival==0&&home!=0){
+     } else if (arrival>0&&home!=0){
          home--;
      }
     }

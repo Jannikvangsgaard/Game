@@ -36,7 +36,7 @@ public class Control implements Serializable {
     }
     
     public boolean hasLost(Player play){
-        if (play.getCivilian() < 0 && play.getLCav() < 0 && play.getHCav() < 0 && play.getLInf() < 0 && play.getHInf() < 0){
+        if (play.getCivilian() <= 0 && play.getLCav() <= 0 && play.getHCav() <= 0 && play.getLInf() <= 0 && play.getHInf() <= 0){
             return true;
         }
         return false;
@@ -48,11 +48,14 @@ public class Control implements Serializable {
             for (int i = 0; i < armies.size(); i++) {
                 if (armies.get(i).getArrival() == 0) {
                     if (armies.get(i).getDamage() > player2.getDefense()) {
-                        player2.lost((int) player2.getDefense() - (int) armies.get(i).getDamage());
-                        armies.get(i).winner((int) player2.getDefense() - (int) armies.get(i).getDamage());
+                        int a = (int) armies.get(i).getDamage() - (int) player2.getDefense();
+                        player2.lost(a);
+                        armies.get(i).winner(a);
+                        armies.get(i).setArrival(-1);
                     } else if (armies.get(i).getDamage() < player2.getDefense()) {
                         int lost = 2 / ((int) player2.getDefense() - (int) armies.get(i).getDamage());
                         int[] soldiers = armies.get(i).getArmy();
+                        //prøv for lokke
                         if (lost <= soldiers[0]) {
                             soldiers[0] -= lost;
                         } else if (lost > soldiers[0]) {
@@ -78,6 +81,7 @@ public class Control implements Serializable {
                 }
             }
         }
+        player1.setArmies(armies);
         armies = player2.getArmy();
         if (armies != null) {
             for (int i = 0; i < armies.size(); i++) {
@@ -113,6 +117,7 @@ public class Control implements Serializable {
                 }
             }
         }
+        player2.setArmies(armies);
         player1.counter();
         player2.counter();
     }

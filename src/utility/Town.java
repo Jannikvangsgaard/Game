@@ -101,7 +101,7 @@ public class Town implements Serializable {
         defense = soldiers[0];
         defense += soldiers[1] * 1.5;
         defense += soldiers[2] * 1.5;
-        defense += soldiers[30] * 2.5;
+        defense += soldiers[3] * 2.5;
         if (building.isWall()) {
             defense += 10;
         }
