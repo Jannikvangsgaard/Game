@@ -48,7 +48,7 @@ public class Army implements Serializable {
     public boolean isHome(){
         if (home==2||home==1){
             if (arrival ==0 ){
-                home--;
+               return false;
             }else if(home==0)
             {
             return true;
@@ -83,6 +83,8 @@ public class Army implements Serializable {
     public void move() {
      if (arrival>0){
          arrival--;
+     } else if (arrival==0&&home!=0){
+         home--;
      }
     }
 

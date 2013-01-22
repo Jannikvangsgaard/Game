@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author Jannik
  */
-public class Town implements Serializable{
+public class Town implements Serializable {
 
     private int civilian;
     private ArrayList<Army> armies = new ArrayList<Army>();
@@ -17,21 +17,18 @@ public class Town implements Serializable{
     private Army army;
 
     public Town() {
-        
+
         civilian = 10;
         totalGold = 10;
         building = new Building();
     }
-    
+
     public void counter() {
-        
-        if (army != null && army.getArrival()==0){
-            army.isHome();
-            
-        } else if (army !=null) {
-        army.move();
+
+        if (army!=null){
+            army.move();
         }
-        if (army != null && army.isHome()){
+        if (army != null && army.isHome()) {
             int[] sol = army.getArmy();
             soldiers[0] += sol[0];
             soldiers[1] += sol[1];
@@ -46,9 +43,8 @@ public class Town implements Serializable{
         civilian += num;
 
     }
-    
-    
-    public void sendArmy(int sol[], String name){
+
+    public void sendArmy(int sol[], String name) {
         soldiers[0] = soldiers[0] - sol[0];
         soldiers[1] = soldiers[1] - sol[1];
         soldiers[2] = soldiers[2] - sol[2];
@@ -56,18 +52,17 @@ public class Town implements Serializable{
         army = new Army(sol, name);
         armies.add(army);
     }
-    public double defense(){
+
+    public double defense() {
         double damage;
         damage = soldiers[0];
         damage += soldiers[1] * 1.5;
         damage += soldiers[2] * 1.5;
         damage += soldiers[30] * 2.5;
         return damage;
-        
+
     }
 
-    
-    
     public boolean isBarrack() {
         return building.isBarrack();
     }
@@ -207,57 +202,57 @@ public class Town implements Serializable{
         switch (building) {
             case 1:
                 if (totalGold >= 10) {
-                    if (!this.building.isBarrack()){
-                    this.building.setBarrack(true);
-                    totalGold -= 10;
+                    if (!this.building.isBarrack()) {
+                        this.building.setBarrack(true);
+                        totalGold -= 10;
                     }
                 }
                 break;
             case 2:
                 if (totalGold >= 50) {
-                    if (!this.building.isStable()){
-                    this.building.setStable(true);
-                    totalGold -= 50;
+                    if (!this.building.isStable()) {
+                        this.building.setStable(true);
+                        totalGold -= 50;
                     }
                 }
                 break;
             case 3:
                 if (totalGold >= 80) {
-                    if (!this.building.isWall()){
-                    this.building.setWall(true);
-                    totalGold -= 80;
+                    if (!this.building.isWall()) {
+                        this.building.setWall(true);
+                        totalGold -= 80;
                     }
                 }
                 break;
             case 4:
                 if (totalGold >= 250) {
-                    if (this.building.isGreatWall()){
-                    this.building.setGreatWall(true);
-                    totalGold -= 250;
+                    if (this.building.isGreatWall()) {
+                        this.building.setGreatWall(true);
+                        totalGold -= 250;
                     }
                 }
                 break;
             case 5:
                 if (totalGold >= 80) {
-                    if (this.building.isMarket()){
-                    this.building.setMarkte(true);
-                    totalGold -= 80;
+                    if (this.building.isMarket()) {
+                        this.building.setMarkte(true);
+                        totalGold -= 80;
                     }
                     break;
                 }
             case 6:
                 if (totalGold >= 130) {
-                    if (this.building.isSpecialWeaponSmith()){
-                    this.building.setSpecialWeaponSmith(true);
-                    totalGold -= 130;
+                    if (this.building.isSpecialWeaponSmith()) {
+                        this.building.setSpecialWeaponSmith(true);
+                        totalGold -= 130;
                     }
                 }
                 break;
             case 7:
                 if (totalGold >= 300) {
-                    if (this.building.isSiegeEngineHouse()){
-                    this.building.setSiegeEngineHouse(true);
-                    totalGold -= 300;
+                    if (this.building.isSiegeEngineHouse()) {
+                        this.building.setSiegeEngineHouse(true);
+                        totalGold -= 300;
                     }
                 }
                 break;
