@@ -520,6 +520,7 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jLabel12.setVisible(true);
             jLabelCivilians.setVisible(true);
             jLabelGold.setVisible(true);
             jLabelCurrentPlayer.setVisible(true);
@@ -597,6 +598,7 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jLabel12.setVisible(true);
             jLabelCivilians.setVisible(true);
             jLabelGold.setVisible(true);
             jLabelCurrentPlayer.setVisible(true);
