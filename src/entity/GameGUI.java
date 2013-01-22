@@ -242,6 +242,7 @@ public class GameGUI extends javax.swing.JFrame {
         jLabel16.setText("Heavy Cavalry");
 
         jTextFieldAttack1.setText("0");
+        jTextFieldAttack1.setRequestFocusEnabled(false);
         jTextFieldAttack1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldAttack1KeyReleased(evt);
@@ -364,23 +365,23 @@ public class GameGUI extends javax.swing.JFrame {
                                     .addComponent(jRadioButtonWall)
                                     .addComponent(jRadioButtonGreatWall))
                                 .addGap(223, 223, 223)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldAttack4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jTextFieldAttack4, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel15)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldAttack3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jTextFieldAttack3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel13)
                                             .addComponent(jLabel14))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldAttack2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldAttack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(15, 15, 15)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldAttack2, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldAttack1))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonAttack))))))
         );
@@ -630,9 +631,6 @@ public class GameGUI extends javax.swing.JFrame {
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
-
-
-
             jLabel12.setVisible(false);
             jLabelCivilians.setVisible(false);
             jLabelGold.setVisible(false);
@@ -680,11 +678,13 @@ public class GameGUI extends javax.swing.JFrame {
                  jTextAreaStatus.setLocation(1500, 2500);
                  jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName2() + " has won!\n\nCongratulations!!");
+                jMenuSave.setEnabled(false);
                 jButtonStart.setEnabled(false);
             } else if (con.hasLost(con.getPlayer2())){
                 jTextAreaStatus.setLocation(1500, 2500);
                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " has won!\n\nCongratulations!!");
+                jMenuSave.setEnabled(false);
                 jButtonStart.setEnabled(false);
             }
         }

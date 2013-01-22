@@ -126,26 +126,26 @@
                                   <Component id="jRadioButtonGreatWall" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAttack4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAttack4" pref="27" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAttack3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAttack3" min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextFieldAttack2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldAttack1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextFieldAttack2" pref="27" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAttack1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -515,6 +515,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldAttack1">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAttack1KeyReleased"/>
