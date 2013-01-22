@@ -6,6 +6,7 @@ package entity;
 
 import control.Control;
 import control.IO;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 
 /**
@@ -676,9 +677,13 @@ public class GameGUI extends javax.swing.JFrame {
             }
             con.setTurn(1);
             if (con.hasLost(con.getPlayer1())){
+                 jTextAreaStatus.setLocation(1500, 2500);
+                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName2() + " has won!\n\nCongratulations!!");
                 jButtonStart.setEnabled(false);
             } else if (con.hasLost(con.getPlayer2())){
+                jTextAreaStatus.setLocation(1500, 2500);
+                jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " has won!\n\nCongratulations!!");
                 jButtonStart.setEnabled(false);
             }

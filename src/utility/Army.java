@@ -86,6 +86,6 @@ public class Army implements Serializable {
     }
     @Override
     public String toString(){
-        return "Arrival: " + arrival + " your army is home in " + home + " turn(s)\n";
+        return "Arrival in: " + arrival + " turn(s) your army is home in " + home + " turn(s)\n";
     }
 }
