@@ -14,7 +14,6 @@ public class Town implements Serializable {
     private int[] soldiers = new int[4];
     private int totalGold;
     private Building building;
-    private Army army;
 
     public Town() {
 
@@ -24,16 +23,17 @@ public class Town implements Serializable {
     }
 
     public void counter() {
-
-        if (army!=null){
-            army.move();
-        }
-        if (army != null && army.isHome()) {
-            int[] sol = army.getArmy();
-            soldiers[0] += sol[0];
-            soldiers[1] += sol[1];
-            soldiers[2] += sol[2];
-            soldiers[3] += sol[3];
+        for (int i = 0; i < 5; i++) {
+            if (armies != null) {
+                armies.get(i).move();
+            }
+            if (armies != null && armies.get(i).isHome()) {
+                int[] sol = armies.get(i).getArmy();
+                soldiers[0] += sol[0];
+                soldiers[1] += sol[1];
+                soldiers[2] += sol[2];
+                soldiers[3] += sol[3];
+            }
         }
         int num = civilian / 2;
         if (num > 50) {
@@ -49,8 +49,7 @@ public class Town implements Serializable {
         soldiers[1] = soldiers[1] - sol[1];
         soldiers[2] = soldiers[2] - sol[2];
         soldiers[3] = soldiers[3] - sol[3];
-        army = new Army(sol, name);
-        armies.add(army);
+        armies.add(new Army(sol, name));
     }
 
     public double defense() {
