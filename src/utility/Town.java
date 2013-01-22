@@ -43,6 +43,13 @@ public class Town implements Serializable {
         civilian += num;
 
     }
+    public String armyInfo(){
+        String res = null;
+        for (int i=0; i<armies.size();i++){
+        res += armies.get(i).toString();
+        }
+        return res;
+    }
 
     public void sendArmy(int sol[], String name) {
         soldiers[0] = soldiers[0] - sol[0];

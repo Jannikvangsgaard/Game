@@ -36,6 +36,14 @@ public class Control implements Serializable {
         player1.counter();
         player2.counter();
     }
+    public String armyinfo(int i){
+        
+        if (i==0)
+        return player1.armyInfo();
+        else
+        return player2.armyInfo();
+        
+    }
     public void createPlayer(String name1, String name2){
         player1 = new Player(name1);
         player2 = new Player(name2);

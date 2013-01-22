@@ -569,6 +569,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
         } else if (con.getTurn() == 3) {
             con.counter();
+            jTextAreaStatus.setText("" + con.armyinfo(0));
             con.setTurn(1);
         }
         jTextAreaStatus.setText(con.getName() + " It's your turn.");

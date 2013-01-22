@@ -26,6 +26,9 @@ public class Player implements Serializable {
     public void counter() {
         town.counter();
     }
+    public String armyInfo(){
+       return town.armyInfo();
+    }
 
     public void build(int i) {
         town.build(i);
