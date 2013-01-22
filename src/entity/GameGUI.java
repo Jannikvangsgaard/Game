@@ -676,12 +676,14 @@ public class GameGUI extends javax.swing.JFrame {
             con.setTurn(1);
             if (con.hasLost(con.getPlayer1())) {
                 jTextAreaStatus.setLocation(1500, 2500);
+                jMenu1.setEnabled(false);
                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName2() + " has won!\n\nCongratulations!!");
                 jMenuSave.setEnabled(false);
                 jButtonStart.setEnabled(false);
             } else if (con.hasLost(con.getPlayer2())) {
                 jTextAreaStatus.setLocation(1500, 2500);
+                jMenu1.setEnabled(false);
                 jTextAreaStatus.setFont(new Font(Font.SERIF, Font.BOLD, 24));
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " has won!\n\nCongratulations!!");
                 jMenuSave.setEnabled(false);
@@ -750,7 +752,7 @@ public class GameGUI extends javax.swing.JFrame {
         } else if (soldier3 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier3 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier3) {
             jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4 * 3.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
+        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4*3.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier4 + " Heavy Cavalry");
             } else {
