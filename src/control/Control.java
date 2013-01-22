@@ -119,4 +119,10 @@ public class Control implements Serializable {
     public void setTurn(int turn) {
         this.turn = turn;
     }
+    public String getPlayerName1(){
+        return player1.getName();
+    }
+    public String getPlayerName2(){
+        return player2.getName();
+    }
 }

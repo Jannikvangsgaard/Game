@@ -83,7 +83,7 @@ public class Army implements Serializable {
      }
     }
     public String toString(){
-        return "Arrival: " + arrival + " your army is home in " + home + " turn(s)";
+        return "Arrival: " + arrival + " your army is home in " + home + " turn(s)\n";
     }
 
     
