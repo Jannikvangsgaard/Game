@@ -743,22 +743,22 @@ public class GameGUI extends javax.swing.JFrame {
         } else if (soldier2 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier2 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier2) {
             jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier3 > 0 && con.getLCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier3 * 1.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier3) {
+        if (soldier3 > 0 && con.getLCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier3 * 1.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier3 && con.isStable()) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier3 + " Light Cavalry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier3 + " Light Cavalry");
             }
-        } else if (soldier3 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier3 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier3) {
+        } else if (soldier3 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier3 * 1.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier3 || !con.isStable()) {
             jTextAreaStatus.setText("failed to train unit");
         }
-        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4*3.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4) {
+        if (soldier4 > 0 && con.getHCav() > 0 && Integer.parseInt(jLabelGold.getText()) > (soldier4*3.5) && Integer.parseInt(jLabelCivilians.getText()) > soldier4 && con.isStable()) {
             if (tick > 0) {
                 jTextAreaStatus.append(con.getName() + "\n You have trained: " + soldier4 + " Heavy Cavalry");
             } else {
                 jTextAreaStatus.setText(con.getName() + " You have trained: " + soldier4 + " Heavy Cavalry");
             }
-        } else if (soldier4 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier4 * 3.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier4) {
+        } else if (soldier4 > 0 && Integer.parseInt(jLabelGold.getText()) < (soldier4 * 3.5) || Integer.parseInt(jLabelCivilians.getText()) <= soldier4 || !con.isStable()) {
             jTextAreaStatus.setText("failed to train unit");
         }
     }//GEN-LAST:event_jButtonTrainActionPerformed
