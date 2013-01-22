@@ -24,6 +24,7 @@ public class GameGUI extends javax.swing.JFrame {
      */
     public GameGUI() {
         initComponents();
+        jLabelStatus.setVisible(false);
     }
 
     /**
@@ -337,8 +338,9 @@ public class GameGUI extends javax.swing.JFrame {
                                     .addComponent(jLabelHCav)
                                     .addComponent(jLabelLCav)
                                     .addComponent(jLabelHinf)
-                                    .addComponent(jLabelLightInf)
-                                    .addComponent(jLabelGold))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelLightInf)
+                                        .addComponent(jLabelGold)))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -350,37 +352,35 @@ public class GameGUI extends javax.swing.JFrame {
                                     .addComponent(jTextFieldConvert, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonMarket)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jRadioButtonBarrack)
-                                                    .addComponent(jRadioButtonStable))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jRadioButtonSpecial)
-                                                    .addComponent(jRadioButtonSiege)))
-                                            .addComponent(jRadioButtonWall)
-                                            .addComponent(jRadioButtonGreatWall))
-                                        .addGap(223, 223, 223)
+                                            .addComponent(jRadioButtonBarrack)
+                                            .addComponent(jRadioButtonStable))
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel16)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldAttack4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel15)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldAttack3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel13)
-                                                    .addComponent(jLabel14))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextFieldAttack2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextFieldAttack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(jRadioButtonSpecial)
+                                            .addComponent(jRadioButtonSiege)))
+                                    .addComponent(jRadioButtonMarket)
+                                    .addComponent(jRadioButtonWall)
+                                    .addComponent(jRadioButtonGreatWall))
+                                .addGap(223, 223, 223)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldAttack4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldAttack3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldAttack2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldAttack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonAttack))))))
         );
@@ -405,7 +405,7 @@ public class GameGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelLightInf)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelHinf)
                             .addComponent(jLabel2))
@@ -452,14 +452,13 @@ public class GameGUI extends javax.swing.JFrame {
                             .addComponent(jTextFieldConvert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addComponent(jRadioButtonMarket))
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jButtonTrain)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAttack)
@@ -522,6 +521,32 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jLabelCivilians.setVisible(true);
+            jLabelGold.setVisible(true);
+            jLabelCurrentPlayer.setVisible(true);
+            jLabelLightInf.setVisible(true);
+            jLabelHinf.setVisible(true);
+            jLabelLCav.setVisible(true);
+            jLabelHCav.setVisible(true);
+            jRadioButtonBarrack.setEnabled(true);
+            jRadioButtonGreatWall.setEnabled(true);
+            jRadioButtonMarket.setEnabled(true);
+            jRadioButtonSiege.setEnabled(true);
+            jRadioButtonSpecial.setEnabled(true);
+            jRadioButtonStable.setEnabled(true);
+            jRadioButtonWall.setEnabled(true);
+            jButtonAttack.setEnabled(true);
+            jButtonTrain.setEnabled(true);
+            jTextFieldAttack1.setEnabled(true);
+            jTextFieldAttack2.setEnabled(true);
+            jTextFieldAttack3.setEnabled(true);
+            jTextFieldAttack4.setEnabled(true);
+            jTextFieldBuyLInf.setEnabled(true);
+            jTextFieldBuyHInf.setEnabled(true);
+            jTextFieldBuyLCav.setEnabled(true);
+            jTextFieldBuyHCav.setEnabled(true);
+            jTextFieldConvert.setEnabled(true);
+
             con.setTurn(2);
             p1civ = Integer.parseInt(jLabelCivilians.getText());
             p1gold = Integer.parseInt(jLabelGold.getText());
@@ -573,12 +598,66 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jLabelCivilians.setVisible(true);
+            jLabelGold.setVisible(true);
+            jLabelCurrentPlayer.setVisible(true);
+            jLabelLightInf.setVisible(true);
+            jLabelHinf.setVisible(true);
+            jLabelLCav.setVisible(true);
+            jLabelHCav.setVisible(true);
+            jRadioButtonBarrack.setEnabled(true);
+            jRadioButtonGreatWall.setEnabled(true);
+            jRadioButtonMarket.setEnabled(true);
+            jRadioButtonSiege.setEnabled(true);
+            jRadioButtonSpecial.setEnabled(true);
+            jRadioButtonStable.setEnabled(true);
+            jRadioButtonWall.setEnabled(true);
+            jButtonAttack.setEnabled(true);
+            jButtonTrain.setEnabled(true);
+            jTextFieldAttack1.setEnabled(true);
+            jTextFieldAttack2.setEnabled(true);
+            jTextFieldAttack3.setEnabled(true);
+            jTextFieldAttack4.setEnabled(true);
+            jTextFieldBuyLInf.setEnabled(true);
+            jTextFieldBuyHInf.setEnabled(true);
+            jTextFieldBuyLCav.setEnabled(true);
+            jTextFieldBuyHCav.setEnabled(true);
+            jTextFieldConvert.setEnabled(true);
             p2civ = Integer.parseInt(jLabelCivilians.getText());
             p2gold = Integer.parseInt(jLabelGold.getText());
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
-
+             
+            
+             
+            jLabel12.setVisible(false);
+            jLabelCivilians.setVisible(false);
+            jLabelGold.setVisible(false);
+            jLabelCurrentPlayer.setVisible(true);
+            jLabelLightInf.setVisible(false);
+            jLabelHinf.setVisible(false);
+            jLabelLCav.setVisible(false);
+            jLabelHCav.setVisible(false);
+            jRadioButtonBarrack.setEnabled(false);
+            jRadioButtonGreatWall.setEnabled(false);
+            jRadioButtonMarket.setEnabled(false);
+            jRadioButtonSiege.setEnabled(false);
+            jRadioButtonSpecial.setEnabled(false);
+            jRadioButtonStable.setEnabled(false);
+            jRadioButtonWall.setEnabled(false);
+            jButtonAttack.setEnabled(false);
+            jButtonTrain.setEnabled(false);
+            jTextFieldAttack1.setEnabled(false);
+            jTextFieldAttack2.setEnabled(false);
+            jTextFieldAttack3.setEnabled(false);
+            jTextFieldAttack4.setEnabled(false);
+            jTextFieldBuyLInf.setEnabled(false);
+            jTextFieldBuyHInf.setEnabled(false);
+            jTextFieldBuyLCav.setEnabled(false);
+            jTextFieldBuyHCav.setEnabled(false);
+            jTextFieldConvert.setEnabled(false);
+            jLabelCurrentPlayer.setText("Status");
             con.counter();
             if (con.armyinfo(0) != null) {
                 jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
@@ -591,7 +670,7 @@ public class GameGUI extends javax.swing.JFrame {
                 jTextAreaStatus.setText(con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian() - p1civ) + " Civilians and " + (con.getPlayer1Gold() - p1gold) + " Gold");
                 jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
             } else {
-                jTextAreaStatus.append("\n\n" +con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian() - p1civ) + " Civilians and " + (con.getPlayer1Gold() - p1gold) + " Gold");
+                jTextAreaStatus.append("\n\n" + con.getPlayerName1() + " your town have grown with: " + (con.getPlayer1Civilian() - p1civ) + " Civilians and " + (con.getPlayer1Gold() - p1gold) + " Gold");
                 jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
             }
             con.setTurn(1);
@@ -617,6 +696,15 @@ public class GameGUI extends javax.swing.JFrame {
 
         }
         con.train(soldier1, soldier2, soldier3, soldier4);
+        jTextFieldBuyLInf.setText("0");
+        jTextFieldBuyHInf.setText("0");
+        jTextFieldBuyLCav.setText("0");
+        jTextFieldBuyHCav.setText("0");
+        jTextFieldAttack1.setText("0");
+        jTextFieldAttack2.setText("0");
+        jTextFieldAttack3.setText("0");
+        jTextFieldAttack4.setText("0");
+        jTextFieldConvert.setText("0");
         jLabelGold.setText("" + con.getGold());
         jLabelLightInf.setText("" + con.getLInf());
         jLabelHinf.setText("" + con.getHInf());
@@ -966,6 +1054,15 @@ public class GameGUI extends javax.swing.JFrame {
                     jTextAreaStatus.append("\nHeavy Cavalry: " + sol4);
                 }
                 con.createArmy(sol1, sol2, sol3, sol4);
+                jTextFieldBuyLInf.setText("0");
+                jTextFieldBuyHInf.setText("0");
+                jTextFieldBuyLCav.setText("0");
+                jTextFieldBuyHCav.setText("0");
+                jTextFieldAttack1.setText("0");
+                jTextFieldAttack2.setText("0");
+                jTextFieldAttack3.setText("0");
+                jTextFieldAttack4.setText("0");
+                jTextFieldConvert.setText("0");
 
             }
         } else if (jTextFieldAttack1.getText() == null || jTextFieldAttack2.getText() == null || jTextFieldAttack3.getText() == null || jTextFieldAttack4.getText() == null) {
@@ -1004,6 +1101,7 @@ public class GameGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GameGUI().setVisible(true);
+
                 player1name = JOptionPane.showInputDialog(null, "Player 1 write your name");
                 player2name = JOptionPane.showInputDialog(null, "Player 2 write your name");
 
