@@ -119,6 +119,9 @@ public class GameGUI extends javax.swing.JFrame {
         jLabel5.setText("Gold");
 
         jTextFieldBuyLInf.setText("0");
+        jTextFieldBuyLInf.setAutoscrolls(false);
+        jTextFieldBuyLInf.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldBuyLInf.setMinimumSize(new java.awt.Dimension(12, 20));
         jTextFieldBuyLInf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldBuyLInfKeyReleased(evt);
@@ -338,18 +341,17 @@ public class GameGUI extends javax.swing.JFrame {
                                     .addComponent(jLabelHCav)
                                     .addComponent(jLabelLCav)
                                     .addComponent(jLabelHinf)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelLightInf)
-                                        .addComponent(jLabelGold)))
+                                    .addComponent(jLabelLightInf)
+                                    .addComponent(jLabelGold))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextFieldBuyHCav, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldBuyLCav, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldBuyHInf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldBuyLInf, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelCivilians, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldConvert, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jTextFieldConvert, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldBuyLInf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
