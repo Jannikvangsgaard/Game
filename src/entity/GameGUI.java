@@ -521,6 +521,8 @@ public class GameGUI extends javax.swing.JFrame {
                 jRadioButtonSiege.setEnabled(true);
             }
             con.setTurn(2);
+            jTextAreaStatus.setText(con.getName() + " It's your turn.");
+            jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 2) {
             con.changePlayer();
             jLabelCurrentPlayer.setText("" + con.getName());
@@ -566,9 +568,12 @@ public class GameGUI extends javax.swing.JFrame {
             } else {
                 jRadioButtonSiege.setEnabled(true);
             }
+            jTextAreaStatus.setText(con.getName() + " It's your turn.");
+            jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         } else if (con.getTurn() == 3) {
             jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
             con.counter();
+            jTextAreaStatus.setText(con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
             con.setTurn(1);
         } else if (con.getTurn() == 2 || con.getTurn() == 1) {
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
