@@ -24,7 +24,6 @@ public class GameGUI extends javax.swing.JFrame {
      */
     public GameGUI() {
         initComponents();
-        jLabelStatus.setVisible(false);
     }
 
     /**
