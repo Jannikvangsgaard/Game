@@ -570,8 +570,7 @@ public class GameGUI extends javax.swing.JFrame {
             jTextAreaStatus.setText("" + con.getPlayerName1() + " " + con.armyinfo(0) + "\n\n" + con.getPlayerName2() + con.armyinfo(1));
             con.counter();
             con.setTurn(1);
-        }
-        if (con.getTurn() == 2 || con.getTurn() == 1) {
+        } else if (con.getTurn() == 2 || con.getTurn() == 1) {
             jTextAreaStatus.setText(con.getName() + " It's your turn.");
             jTextAreaStatus.append("\n\nTrain button, will train the choosen unit's.\n" + "\n" + "Attack button, will send the choosen amount of unit's towards your enemy");
         }
