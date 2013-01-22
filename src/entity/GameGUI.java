@@ -490,36 +490,43 @@ public class GameGUI extends javax.swing.JFrame {
                 jRadioButtonBarrack.setEnabled(false);
             } else {
                 jRadioButtonBarrack.setEnabled(true);
+                jRadioButtonBarrack.setSelected(false);
             }
             if (con.isStable()) {
                 jRadioButtonStable.setEnabled(false);
             } else {
                 jRadioButtonStable.setEnabled(true);
+                jRadioButtonStable.setSelected(false);
             }
             if (con.isWall()) {
                 jRadioButtonWall.setEnabled(false);
             } else {
                 jRadioButtonWall.setEnabled(true);
+                jRadioButtonWall.setSelected(false);
             }
             if (con.isGreatWall()) {
                 jRadioButtonGreatWall.setEnabled(false);
             } else {
                 jRadioButtonGreatWall.setEnabled(true);
+                jRadioButtonGreatWall.setSelected(false);
             }
             if (con.isMarket()) {
                 jRadioButtonMarket.setEnabled(false);
             } else {
                 jRadioButtonMarket.setEnabled(true);
+                jRadioButtonMarket.setSelected(false);
             }
             if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSpecial.setEnabled(false);
             } else {
                 jRadioButtonSpecial.setEnabled(true);
+                jRadioButtonSpecial.setSelected(false);
             }
             if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSiege.setEnabled(false);
             } else {
                 jRadioButtonSiege.setEnabled(true);
+                jRadioButtonSiege.setSelected(false);
             }
             jLabel12.setVisible(true);
             jLabelCivilians.setVisible(true);
@@ -529,13 +536,6 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelHinf.setVisible(true);
             jLabelLCav.setVisible(true);
             jLabelHCav.setVisible(true);
-            jRadioButtonBarrack.setEnabled(true);
-            jRadioButtonGreatWall.setEnabled(true);
-            jRadioButtonMarket.setEnabled(true);
-            jRadioButtonSiege.setEnabled(true);
-            jRadioButtonSpecial.setEnabled(true);
-            jRadioButtonStable.setEnabled(true);
-            jRadioButtonWall.setEnabled(true);
             jButtonAttack.setEnabled(true);
             jButtonTrain.setEnabled(true);
             jTextFieldAttack1.setEnabled(true);
@@ -568,36 +568,43 @@ public class GameGUI extends javax.swing.JFrame {
                 jRadioButtonBarrack.setEnabled(false);
             } else {
                 jRadioButtonBarrack.setEnabled(true);
+                jRadioButtonBarrack.setSelected(false);
             }
             if (con.isStable()) {
                 jRadioButtonStable.setEnabled(false);
             } else {
                 jRadioButtonStable.setEnabled(true);
+                jRadioButtonStable.setSelected(false);
             }
             if (con.isWall()) {
                 jRadioButtonWall.setEnabled(false);
             } else {
                 jRadioButtonWall.setEnabled(true);
+                jRadioButtonWall.setSelected(false);
             }
             if (con.isGreatWall()) {
                 jRadioButtonGreatWall.setEnabled(false);
             } else {
                 jRadioButtonGreatWall.setEnabled(true);
+                jRadioButtonGreatWall.setSelected(false);
             }
             if (con.isMarket()) {
                 jRadioButtonMarket.setEnabled(false);
             } else {
                 jRadioButtonMarket.setEnabled(true);
+                jRadioButtonMarket.setSelected(false);
             }
             if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSpecial.setEnabled(false);
             } else {
                 jRadioButtonSpecial.setEnabled(true);
+                jRadioButtonSpecial.setSelected(false);
             }
             if (con.isSpecialWeaponSmith()) {
                 jRadioButtonSiege.setEnabled(false);
             } else {
                 jRadioButtonSiege.setEnabled(true);
+                jRadioButtonSiege.setSelected(false);
             }
             jLabel12.setVisible(true);
             jLabelCivilians.setVisible(true);
@@ -607,13 +614,6 @@ public class GameGUI extends javax.swing.JFrame {
             jLabelHinf.setVisible(true);
             jLabelLCav.setVisible(true);
             jLabelHCav.setVisible(true);
-            jRadioButtonBarrack.setEnabled(true);
-            jRadioButtonGreatWall.setEnabled(true);
-            jRadioButtonMarket.setEnabled(true);
-            jRadioButtonSiege.setEnabled(true);
-            jRadioButtonSpecial.setEnabled(true);
-            jRadioButtonStable.setEnabled(true);
-            jRadioButtonWall.setEnabled(true);
             jButtonAttack.setEnabled(true);
             jButtonTrain.setEnabled(true);
             jTextFieldAttack1.setEnabled(true);
