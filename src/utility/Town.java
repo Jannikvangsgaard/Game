@@ -22,6 +22,36 @@ public class Town implements Serializable {
         building = new Building();
     }
 
+    public boolean lost(int lost) {
+        if (lost <= civilian) {
+            civilian -= lost;
+        } else if (lost > civilian) {
+            lost -= civilian;
+            civilian = 0;
+            if (lost <= soldiers[0]) {
+                soldiers[0] -= lost;
+            } else if (lost > soldiers[0]) {
+                soldiers[0] = 0;
+                if (lost <= soldiers[1]) {
+                    soldiers[1] -= lost;
+                } else if (lost > soldiers[1]) {
+                    soldiers[1] = 0;
+                    if (lost <= soldiers[2]) {
+                        soldiers[2] -= lost;
+                    } else if (lost > soldiers[2]) {
+                        soldiers[2] = 0;
+                        if (lost <= soldiers[3]) {
+                            soldiers[3] -= lost;
+                        } else if (lost > soldiers[2]) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public void counter() {
         for (int i = 0; i < armies.size(); i++) {
             if (armies != null) {
@@ -43,10 +73,11 @@ public class Town implements Serializable {
         civilian += num;
 
     }
-    public String armyInfo(){
+
+    public String armyInfo() {
         String res = null;
-        for (int i=0; i<armies.size();i++){
-        res += armies.get(i).toString();
+        for (int i = 0; i < armies.size(); i++) {
+            res += armies.get(i).toString();
         }
         return res;
     }
@@ -60,12 +91,18 @@ public class Town implements Serializable {
     }
 
     public double defense() {
-        double damage;
-        damage = soldiers[0];
-        damage += soldiers[1] * 1.5;
-        damage += soldiers[2] * 1.5;
-        damage += soldiers[30] * 2.5;
-        return damage;
+        double defense;
+        defense = soldiers[0];
+        defense += soldiers[1] * 1.5;
+        defense += soldiers[2] * 1.5;
+        defense += soldiers[30] * 2.5;
+        if (building.isWall()) {
+            defense += 10;
+        }
+        if (building.isGreatWall()) {
+            defense += 20;
+        }
+        return defense;
 
     }
 

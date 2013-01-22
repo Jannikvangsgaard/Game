@@ -11,12 +11,14 @@ public class Player implements Serializable {
     private String name;
     private Town town;
     private int[] sol = new int[4];
-    private int[] civ = new int[4];
-    private int rest;
 
     public Player(String name) {
         this.name = name;
         town = new Town();
+    }
+    
+    public double getDefense(){
+        return town.defense();
     }
     
     public void createArmy(int[] army){
@@ -88,6 +90,10 @@ public class Player implements Serializable {
 
     public int getCivilian() {
         return town.getCivilian();
+    }
+    
+    public boolean lost(int lost){
+        return town.lost(lost);
     }
 
     public void train(int sol1, int sol2, int sol3, int sol4) {

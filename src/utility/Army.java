@@ -13,6 +13,7 @@ public class Army implements Serializable {
     private int[] army;
     private int arrival, home=2;
     private double damage;
+    private int win;
     
     public Army(int[] army){
        double amount = army[0];
@@ -31,6 +32,15 @@ public class Army implements Serializable {
         }
         
     }
+    
+    public int win(){
+        return win;
+    }
+    
+    public void winner(int win){
+        this.win = win;
+    }
+    
     public double getDamage(){
         return damage;
     }
@@ -62,6 +72,10 @@ public class Army implements Serializable {
 
     public int getArrival() {
         return arrival;
+    }
+
+    public void setArrival(int arrival) {
+        this.arrival = arrival;
     }
 
     public void move() {
