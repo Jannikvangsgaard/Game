@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * @author Jannik
  */
 public class Player implements Serializable {
+
     private String name;
     private Town town;
     private int[] sol = new int[4];
@@ -16,20 +17,21 @@ public class Player implements Serializable {
         this.name = name;
         town = new Town();
     }
-    
-    public double getDefense(){
+
+    public double getDefense() {
         return town.defense();
     }
-    
-    public void createArmy(int[] army){
+
+    public void createArmy(int[] army) {
         town.sendArmy(army, name);
     }
 
     public void counter() {
         town.counter();
     }
-    public String armyInfo(){
-       return town.armyInfo();
+
+    public String armyInfo() {
+        return town.armyInfo();
     }
 
     public void build(int i) {
@@ -91,8 +93,8 @@ public class Player implements Serializable {
     public int getCivilian() {
         return town.getCivilian();
     }
-    
-    public boolean lost(int lost){
+
+    public boolean lost(int lost) {
         return town.lost(lost);
     }
 
@@ -107,8 +109,8 @@ public class Player implements Serializable {
     public boolean convert(int amount) {
         return town.convertSoldiers(amount);
     }
-    
-    public ArrayList<Army> getArmy(){
+
+    public ArrayList<Army> getArmy() {
         return town.getArmies();
     }
 }
