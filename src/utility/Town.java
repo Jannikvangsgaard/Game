@@ -33,7 +33,10 @@ public class Town implements Serializable {
                 soldiers[1] += sol[1];
                 soldiers[2] += sol[2];
                 soldiers[3] += sol[3];
+                armies.remove(i);
+                i--;
             }
+            
         }
         int num = civilian / 2;
         if (num > 50) {
