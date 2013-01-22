@@ -595,7 +595,13 @@ public class GameGUI extends javax.swing.JFrame {
                 jTextAreaStatus.append("\n" + con.getPlayerName2() + " your town have grown with: " + (con.getPlayer2Civilian() - p2civ) + " Civilians and " + (con.getPlayer2Gold() - p2gold) + " Gold");
             }
             con.setTurn(1);
-
+            if (con.hasLost(con.getPlayer1())){
+                jTextAreaStatus.setText("" + con.getPlayerName2() + " has won!\n\nCongratulations!!");
+                jButtonStart.setEnabled(false);
+            } else if (con.hasLost(con.getPlayer2())){
+                jTextAreaStatus.setText("" + con.getPlayerName1() + " has won!\n\nCongratulations!!");
+                jButtonStart.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_jButtonStartActionPerformed
 

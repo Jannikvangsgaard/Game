@@ -42,7 +42,7 @@ public class Town implements Serializable {
                         soldiers[2] = 0;
                         if (lost <= soldiers[3]) {
                             soldiers[3] -= lost;
-                        } else if (lost > soldiers[2]) {
+                        } else if (lost > soldiers[3]) {
                             return true;
                         }
                     }
@@ -63,6 +63,7 @@ public class Town implements Serializable {
                 soldiers[1] += sol[1];
                 soldiers[2] += sol[2];
                 soldiers[3] += sol[3];
+                civilian += armies.get(i).win();
                 armies.remove(i);
                 i--;
             }

@@ -34,6 +34,13 @@ public class Control implements Serializable {
     public boolean convert(int amount) {
         return currentPlayer.convert(amount);
     }
+    
+    public boolean hasLost(Player play){
+        if (play.getCivilian() < 0 && play.getLCav() < 0 && play.getHCav() < 0 && play.getLInf() < 0 && play.getHInf() < 0){
+            return true;
+        }
+        return false;
+    }
 
     public void counter() {
         ArrayList<Army> armies = player1.getArmy();
@@ -44,6 +51,29 @@ public class Control implements Serializable {
                         player2.lost((int) player2.getDefense() - (int) armies.get(i).getDamage());
                         armies.get(i).winner((int) player2.getDefense() - (int) armies.get(i).getDamage());
                     } else if (armies.get(i).getDamage() < player2.getDefense()) {
+                        int lost = 2 / ((int) player2.getDefense() - (int) armies.get(i).getDamage());
+                        int[] soldiers = armies.get(i).getArmy();
+                        if (lost <= soldiers[0]) {
+                            soldiers[0] -= lost;
+                        } else if (lost > soldiers[0]) {
+                            soldiers[0] = 0;
+                            if (lost <= soldiers[1]) {
+                                soldiers[1] -= lost;
+                            } else if (lost > soldiers[1]) {
+                                soldiers[1] = 0;
+                                if (lost <= soldiers[2]) {
+                                    soldiers[2] -= lost;
+                                } else if (lost > soldiers[2]) {
+                                    soldiers[2] = 0;
+                                    if (lost <= soldiers[3]) {
+                                        soldiers[3] -= lost;
+                                    } else if (lost > soldiers[3]) {
+                                        armies.remove(i);
+                                        i--;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -53,7 +83,32 @@ public class Control implements Serializable {
             for (int i = 0; i < armies.size(); i++) {
                 if (armies.get(i).getArrival() == 0) {
                     if (armies.get(i).getDamage() > player1.getDefense()) {
+                        player1.lost((int) player1.getDefense() - (int) armies.get(i).getDamage());
+                        armies.get(i).winner((int) player1.getDefense() - (int) armies.get(i).getDamage());
                     } else if (armies.get(i).getDamage() < player1.getDefense()) {
+                        int lost = 2 / ((int) player1.getDefense() - (int) armies.get(i).getDamage());
+                        int[] soldiers = armies.get(i).getArmy();
+                        if (lost <= soldiers[0]) {
+                            soldiers[0] -= lost;
+                        } else if (lost > soldiers[0]) {
+                            soldiers[0] = 0;
+                            if (lost <= soldiers[1]) {
+                                soldiers[1] -= lost;
+                            } else if (lost > soldiers[1]) {
+                                soldiers[1] = 0;
+                                if (lost <= soldiers[2]) {
+                                    soldiers[2] -= lost;
+                                } else if (lost > soldiers[2]) {
+                                    soldiers[2] = 0;
+                                    if (lost <= soldiers[3]) {
+                                        soldiers[3] -= lost;
+                                    } else if (lost > soldiers[3]) {
+                                        armies.remove(i);
+                                        i--;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -79,6 +134,14 @@ public class Control implements Serializable {
 
     public int getGold() {
         return currentPlayer.getGold();
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 
     public void train(int sol, int sol2, int sol3, int sol4) {
@@ -156,16 +219,20 @@ public class Control implements Serializable {
     public String getPlayerName2() {
         return player2.getName();
     }
-    public int getPlayer1Civilian(){
+
+    public int getPlayer1Civilian() {
         return player1.getCivilian();
     }
-    public int getPlayer2Civilian(){
+
+    public int getPlayer2Civilian() {
         return player2.getCivilian();
     }
-    public int getPlayer1Gold(){
+
+    public int getPlayer1Gold() {
         return player1.getGold();
     }
-    public int getPlayer2Gold(){
+
+    public int getPlayer2Gold() {
         return player2.getGold();
     }
 }
