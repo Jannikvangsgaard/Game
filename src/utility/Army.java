@@ -46,7 +46,6 @@ public class Army implements Serializable {
 
     public boolean ifOnlyCav(int[] army) {
         if (army[0] == 0 && army[1] == 0) {
-            boolean onlyCav = true;
             arrival = 1;
             return true;
         }
@@ -61,9 +60,6 @@ public class Army implements Serializable {
 
     }
 
-    public boolean isOnlyCav() {
-        return onlyCav;
-    }
 
     public int[] getArmy() {
         return army;
@@ -86,6 +82,9 @@ public class Army implements Serializable {
     }
     @Override
     public String toString(){
-        return "Arrival in: " + arrival + " turn(s) your army is home in " + home + " turn(s)\n";
+        if (arrival>0)
+        return "Arrival in: " + arrival + " turn(s)";
+        
+        return "Your army is home in " + home + " turn(s) \n";
     }
 }
